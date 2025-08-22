@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c1f80cc3b04ba740f8a5603ce1121b39 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="position: fixed; 
+     bottom: 30px; left: 30px; width: 220px; height: 140px; 
+     background-color: white; z-index:9999; font-size:14px;
+     border:2px solid grey; padding: 10px;">
+<b>Legenda:</b><br>
+<i class="fa fa-map-marker fa-2x" style="color:blue"></i> Tappe principali<br>
+<i class="fa fa-map-marker fa-2x" style="color:purple"></i> Extra spot<br>
+<i class="fa fa-map-marker fa-2x" style="color:green"></i> Parcheggi<br>
+<span style="color:blue;">━━━</span> Percorso in auto (tooltip: tempo)
+</div>
+    
+            <div class="folium-map" id="map_c1f80cc3b04ba740f8a5603ce1121b39" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c1f80cc3b04ba740f8a5603ce1121b39 = L.map(
+                "map_c1f80cc3b04ba740f8a5603ce1121b39",
+                {
+                    center: [63.7, -19.9],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 9,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_12808ce0ce4c23f9010811e80ffbc332 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_12808ce0ce4c23f9010811e80ffbc332.addTo(map_c1f80cc3b04ba740f8a5603ce1121b39);
+        
+    
+            var marker_bf788f50812852c3df458f6c3ca4b7bb = L.marker(
+                [63.5241, -19.5116],
+                {
+}
+            ).addTo(map_c1f80cc3b04ba740f8a5603ce1121b39);
+        
+    
+            var icon_b373efa840afd618605745ee4a6a8e32 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_db4ef4b636792928beab7496bd8dc51f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2eec497aad124226d336089fd7cc4868 = $(`<div id="html_2eec497aad124226d336089fd7cc4868" style="width: 100.0%; height: 100.0%;"><b>Guesthouse Skógafoss</b><br>Partenza</div>`)[0];
+                popup_db4ef4b636792928beab7496bd8dc51f.setContent(html_2eec497aad124226d336089fd7cc4868);
+            
+        
+
+        marker_bf788f50812852c3df458f6c3ca4b7bb.bindPopup(popup_db4ef4b636792928beab7496bd8dc51f)
+        ;
+
+        
+    
+    
+                marker_bf788f50812852c3df458f6c3ca4b7bb.setIcon(icon_b373efa840afd618605745ee4a6a8e32);
+            
+    
+            var marker_968fa2ec6599789fae63655b0db70c02 = L.marker(
+                [63.4044, -19.0456],
+                {
+}
+            ).addTo(map_c1f80cc3b04ba740f8a5603ce1121b39);
+        
+    
+            var icon_b7ba7dced90a5e9f299754186066711f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d3be845be97b9087a4f5297e5591ac45 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a34e123e376e96232d24916542f9f802 = $(`<div id="html_a34e123e376e96232d24916542f9f802" style="width: 100.0%; height: 100.0%;"><b>Reynisfjara Beach</b><br>Spiaggia nera e colonne basaltiche. Visita: 30–45 min</div>`)[0];
+                popup_d3be845be97b9087a4f5297e5591ac45.setContent(html_a34e123e376e96232d24916542f9f802);
+            
+        
+
+        marker_968fa2ec6599789fae63655b0db70c02.bindPopup(popup_d3be845be97b9087a4f5297e5591ac45)
+        ;
+
+        
+    
+    
+                marker_968fa2ec6599789fae63655b0db70c02.setIcon(icon_b7ba7dced90a5e9f299754186066711f);
+            
+    
+            var marker_4ad60320db001640549ef15bc3607d01 = L.marker(
+                [63.4265, -18.9335],
+                {
+}
+            ).addTo(map_c1f80cc3b04ba740f8a5603ce1121b39);
+        
+    
+            var icon_8a1fe76cd8f95769e80e1feac4bb9ad5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cd1540b9cb0f10f336c7fba0a7b004fc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c4d427ea311a33516d7d506b7dfebd9b = $(`<div id="html_c4d427ea311a33516d7d506b7dfebd9b" style="width: 100.0%; height: 100.0%;"><b>Yoda Cave</b><br>Grotta naturale. Visita: 15–20 min</div>`)[0];
+                popup_cd1540b9cb0f10f336c7fba0a7b004fc.setContent(html_c4d427ea311a33516d7d506b7dfebd9b);
+            
+        
+
+        marker_4ad60320db001640549ef15bc3607d01.bindPopup(popup_cd1540b9cb0f10f336c7fba0a7b004fc)
+        ;
+
+        
+    
+    
+                marker_4ad60320db001640549ef15bc3607d01.setIcon(icon_8a1fe76cd8f95769e80e1feac4bb9ad5);
+            
+    
+            var marker_3b211766a4116c2a7693430c94bfb287 = L.marker(
+                [63.491, -19.3635],
+                {
+}
+            ).addTo(map_c1f80cc3b04ba740f8a5603ce1121b39);
+        
+    
+            var icon_9b97b07858a1623d4ae1cb4feb6c49ab = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_67485f1f2acc6f1229a56329402dd8e3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1c4f57bde8fe66cd40443aab57fad702 = $(`<div id="html_1c4f57bde8fe66cd40443aab57fad702" style="width: 100.0%; height: 100.0%;"><b>DC-3 Plane Wreck Parking</b><br>Parcheggio per trekking al relitto. Cammino: 1h30’ A/R</div>`)[0];
+                popup_67485f1f2acc6f1229a56329402dd8e3.setContent(html_1c4f57bde8fe66cd40443aab57fad702);
+            
+        
+
+        marker_3b211766a4116c2a7693430c94bfb287.bindPopup(popup_67485f1f2acc6f1229a56329402dd8e3)
+        ;
+
+        
+    
+    
+                marker_3b211766a4116c2a7693430c94bfb287.setIcon(icon_9b97b07858a1623d4ae1cb4feb6c49ab);
+            
+    
+            var marker_b2fb9dee4f7d21884a1df6e73dbe2faf = L.marker(
+                [63.565, -19.607],
+                {
+}
+            ).addTo(map_c1f80cc3b04ba740f8a5603ce1121b39);
+        
+    
+            var icon_b9a8504ef8a6ece62f3cba87bf0a4eb6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9ad2f8c5b500efe74cb7fd523f14cf16 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c1d6faccdc6c573e25381a8b09171a73 = $(`<div id="html_c1d6faccdc6c573e25381a8b09171a73" style="width: 100.0%; height: 100.0%;"><b>Seljavallalaug Pool</b><br>Piscina geotermica. Cammino: 15 min. Visita: 45–60 min</div>`)[0];
+                popup_9ad2f8c5b500efe74cb7fd523f14cf16.setContent(html_c1d6faccdc6c573e25381a8b09171a73);
+            
+        
+
+        marker_b2fb9dee4f7d21884a1df6e73dbe2faf.bindPopup(popup_9ad2f8c5b500efe74cb7fd523f14cf16)
+        ;
+
+        
+    
+    
+                marker_b2fb9dee4f7d21884a1df6e73dbe2faf.setIcon(icon_b9a8504ef8a6ece62f3cba87bf0a4eb6);
+            
+    
+            var marker_25a11cd44c570b00407d1b2db7ad3806 = L.marker(
+                [64.0412, -21.2126],
+                {
+}
+            ).addTo(map_c1f80cc3b04ba740f8a5603ce1121b39);
+        
+    
+            var icon_c29971ee0b0222b6fd191d5936d64c2b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d51b06a0e7d9d7a7d9f05ab25df33452 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e956e7b24734530b409c202fd56fab45 = $(`<div id="html_e956e7b24734530b409c202fd56fab45" style="width: 100.0%; height: 100.0%;"><b>Reykjadalur Hot River</b><br>Fiume caldo. Trekking: 2h30’ A/R</div>`)[0];
+                popup_d51b06a0e7d9d7a7d9f05ab25df33452.setContent(html_e956e7b24734530b409c202fd56fab45);
+            
+        
+
+        marker_25a11cd44c570b00407d1b2db7ad3806.bindPopup(popup_d51b06a0e7d9d7a7d9f05ab25df33452)
+        ;
+
+        
+    
+    
+                marker_25a11cd44c570b00407d1b2db7ad3806.setIcon(icon_c29971ee0b0222b6fd191d5936d64c2b);
+            
+    
+            var marker_d15ddff64af3199ac20b4ac754172b05 = L.marker(
+                [63.9331, -21.0011],
+                {
+}
+            ).addTo(map_c1f80cc3b04ba740f8a5603ce1121b39);
+        
+    
+            var icon_d29a1e9f35dac3ce7d9b92c6c8b066cf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f930079a5c1ed822d9768f97db5e67a8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1ed90d63a07983fdf8699131ba9136c5 = $(`<div id="html_1ed90d63a07983fdf8699131ba9136c5" style="width: 100.0%; height: 100.0%;"><b>Hotel Selfoss</b><br>Arrivo</div>`)[0];
+                popup_f930079a5c1ed822d9768f97db5e67a8.setContent(html_1ed90d63a07983fdf8699131ba9136c5);
+            
+        
+
+        marker_d15ddff64af3199ac20b4ac754172b05.bindPopup(popup_f930079a5c1ed822d9768f97db5e67a8)
+        ;
+
+        
+    
+    
+                marker_d15ddff64af3199ac20b4ac754172b05.setIcon(icon_d29a1e9f35dac3ce7d9b92c6c8b066cf);
+            
+    
+            var marker_6502c05aa743defbf6683a28324ffe62 = L.marker(
+                [63.402, -19.1212],
+                {
+}
+            ).addTo(map_c1f80cc3b04ba740f8a5603ce1121b39);
+        
+    
+            var icon_8325e42b7fdbb273c0be5bdf774051c6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b95ecb1f02272d2930426451efba52a6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e399ed8320080eaba3b3a0d2101bdc4b = $(`<div id="html_e399ed8320080eaba3b3a0d2101bdc4b" style="width: 100.0%; height: 100.0%;"><b>Dyrhólaey Viewpoint</b><br>Vista sull’arco roccioso. Visita: 30 min</div>`)[0];
+                popup_b95ecb1f02272d2930426451efba52a6.setContent(html_e399ed8320080eaba3b3a0d2101bdc4b);
+            
+        
+
+        marker_6502c05aa743defbf6683a28324ffe62.bindPopup(popup_b95ecb1f02272d2930426451efba52a6)
+        ;
+
+        
+    
+    
+                marker_6502c05aa743defbf6683a28324ffe62.setIcon(icon_8325e42b7fdbb273c0be5bdf774051c6);
+            
+    
+            var marker_4c0265b4d0050961bcf0460b3d242f8a = L.marker(
+                [63.7461, -20.3595],
+                {
+}
+            ).addTo(map_c1f80cc3b04ba740f8a5603ce1121b39);
+        
+    
+            var icon_e2479aec541ad67fdb72414b368f7b39 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ab1a2a1bd55fe37c926f2a84ea452823 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b92c2b9e8e5d5325a65cb70c80513e88 = $(`<div id="html_b92c2b9e8e5d5325a65cb70c80513e88" style="width: 100.0%; height: 100.0%;"><b>Gluggafoss</b><br>Cascata scenografica. Visita: 20–30 min</div>`)[0];
+                popup_ab1a2a1bd55fe37c926f2a84ea452823.setContent(html_b92c2b9e8e5d5325a65cb70c80513e88);
+            
+        
+
+        marker_4c0265b4d0050961bcf0460b3d242f8a.bindPopup(popup_ab1a2a1bd55fe37c926f2a84ea452823)
+        ;
+
+        
+    
+    
+                marker_4c0265b4d0050961bcf0460b3d242f8a.setIcon(icon_e2479aec541ad67fdb72414b368f7b39);
+            
+    
+            var marker_a03f4c2a86eb4eb0401482f828a85eec = L.marker(
+                [63.4038, -19.046],
+                {
+}
+            ).addTo(map_c1f80cc3b04ba740f8a5603ce1121b39);
+        
+    
+            var icon_d0e204d6474782aef7176f194b326f1f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_29e4b50935a0869ffc061edb95b32a81 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_74f640905c9993d5f50d96a181a85281 = $(`<div id="html_74f640905c9993d5f50d96a181a85281" style="width: 100.0%; height: 100.0%;"><b>Reynisfjara Parking</b><br>Parcheggio gratuito</div>`)[0];
+                popup_29e4b50935a0869ffc061edb95b32a81.setContent(html_74f640905c9993d5f50d96a181a85281);
+            
+        
+
+        marker_a03f4c2a86eb4eb0401482f828a85eec.bindPopup(popup_29e4b50935a0869ffc061edb95b32a81)
+        ;
+
+        
+    
+    
+                marker_a03f4c2a86eb4eb0401482f828a85eec.setIcon(icon_d0e204d6474782aef7176f194b326f1f);
+            
+    
+            var marker_412bf0df2913b1c1be7c5c7f579dcd76 = L.marker(
+                [63.5658, -19.6095],
+                {
+}
+            ).addTo(map_c1f80cc3b04ba740f8a5603ce1121b39);
+        
+    
+            var icon_8fc00e90e456364d9b06ccd0a8c4ecc4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b3ba8298cd95579afe1cfbb331dfebd0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8b9850e23b7d85101cc9af7e6f034afe = $(`<div id="html_8b9850e23b7d85101cc9af7e6f034afe" style="width: 100.0%; height: 100.0%;"><b>Seljavallalaug Parking</b><br>Parcheggio gratuito</div>`)[0];
+                popup_b3ba8298cd95579afe1cfbb331dfebd0.setContent(html_8b9850e23b7d85101cc9af7e6f034afe);
+            
+        
+
+        marker_412bf0df2913b1c1be7c5c7f579dcd76.bindPopup(popup_b3ba8298cd95579afe1cfbb331dfebd0)
+        ;
+
+        
+    
+    
+                marker_412bf0df2913b1c1be7c5c7f579dcd76.setIcon(icon_8fc00e90e456364d9b06ccd0a8c4ecc4);
+            
+    
+            var marker_cef55681e20e35e15a740bf5bf13fda5 = L.marker(
+                [64.0415, -21.2135],
+                {
+}
+            ).addTo(map_c1f80cc3b04ba740f8a5603ce1121b39);
+        
+    
+            var icon_73c9d64f4cedd2ddae0846589d132ffc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_807de83ca4ee18bf797fe76651e46f6a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0f05de1cda7618bcac1e8f1c1a2978d6 = $(`<div id="html_0f05de1cda7618bcac1e8f1c1a2978d6" style="width: 100.0%; height: 100.0%;"><b>Reykjadalur Parking</b><br>Parcheggio gratuito</div>`)[0];
+                popup_807de83ca4ee18bf797fe76651e46f6a.setContent(html_0f05de1cda7618bcac1e8f1c1a2978d6);
+            
+        
+
+        marker_cef55681e20e35e15a740bf5bf13fda5.bindPopup(popup_807de83ca4ee18bf797fe76651e46f6a)
+        ;
+
+        
+    
+    
+                marker_cef55681e20e35e15a740bf5bf13fda5.setIcon(icon_73c9d64f4cedd2ddae0846589d132ffc);
+            
+    
+            var poly_line_69c2bf311fef899e3498ba9260939d84 = L.polyline(
+                [[63.5241, -19.5116], [63.4044, -19.0456]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_c1f80cc3b04ba740f8a5603ce1121b39);
+        
+    
+            poly_line_69c2bf311fef899e3498ba9260939d84.bindTooltip(
+                `<div>
+                     Guesthouse Skógafoss → Reynisfjara Beach: 30 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_6c8e61b12da7ee69301ae42bcf17ce00 = L.polyline(
+                [[63.4044, -19.0456], [63.4265, -18.9335]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_c1f80cc3b04ba740f8a5603ce1121b39);
+        
+    
+            poly_line_6c8e61b12da7ee69301ae42bcf17ce00.bindTooltip(
+                `<div>
+                     Reynisfjara Beach → Yoda Cave: 15 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_2766cd992b37af793f3c23cc6816683f = L.polyline(
+                [[63.4265, -18.9335], [63.491, -19.3635]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_c1f80cc3b04ba740f8a5603ce1121b39);
+        
+    
+            poly_line_2766cd992b37af793f3c23cc6816683f.bindTooltip(
+                `<div>
+                     Yoda Cave → DC-3 Plane Wreck Parking: 20 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_96b851547495dd680387a3cdbc8f024c = L.polyline(
+                [[63.491, -19.3635], [63.565, -19.607]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_c1f80cc3b04ba740f8a5603ce1121b39);
+        
+    
+            poly_line_96b851547495dd680387a3cdbc8f024c.bindTooltip(
+                `<div>
+                     DC-3 Plane Wreck Parking → Seljavallalaug Pool: 15 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_95358216319fa5341acf515b2a49891d = L.polyline(
+                [[63.565, -19.607], [63.7461, -20.3595]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_c1f80cc3b04ba740f8a5603ce1121b39);
+        
+    
+            poly_line_95358216319fa5341acf515b2a49891d.bindTooltip(
+                `<div>
+                     Seljavallalaug Pool → Gluggafoss: 25 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_8ad28b25962b826ffb85c74df01e16ae = L.polyline(
+                [[63.7461, -20.3595], [64.0412, -21.2126]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_c1f80cc3b04ba740f8a5603ce1121b39);
+        
+    
+            poly_line_8ad28b25962b826ffb85c74df01e16ae.bindTooltip(
+                `<div>
+                     Gluggafoss → Reykjadalur Hot River: 1h15 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_0f2fcab4bee97cd609382967d7de4038 = L.polyline(
+                [[64.0412, -21.2126], [63.9331, -21.0011]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_c1f80cc3b04ba740f8a5603ce1121b39);
+        
+    
+            poly_line_0f2fcab4bee97cd609382967d7de4038.bindTooltip(
+                `<div>
+                     Reykjadalur Hot River → Hotel Selfoss: 15 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

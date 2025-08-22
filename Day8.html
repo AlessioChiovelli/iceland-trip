@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<style>
+html, body {height:100%; margin:0; padding:0;}
+.folium-map {width:100%; height:100%;}
+.leaflet-control-zoom a {width:42px; height:42px; line-height:42px;}
+.leaflet-control {margin:10px !important;}
+</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b77a4f3c15492377537806f790a523f5 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.css"/>
+</head>
+<body>
+    
+    
+<div style="position: fixed; bottom: 20px; left: 20px; z-index: 9999; background: white; padding: 10px 12px; border: 1px solid #ccc; box-shadow: 0 2px 6px rgba(0,0,0,.2); font-size: 13px; max-width: 320px;">
+<b>Legenda – Giorno 8 (Snæfellsnes)</b><br>
+<span style="display:inline-block;width:14px;height:14px;background:#1976d2;margin-right:6px;"></span> Tappe principali<br>
+<span style="display:inline-block;width:14px;height:14px;background:#6a1b9a;margin-right:6px;"></span> Extra (spot in viola)<br>
+<span style="display:inline-block;width:14px;height:14px;background:#2e7d32;margin-right:6px;"></span> Parcheggi<br>
+<span style="color:#1565c0;">━━━</span> Percorso in auto (tooltip con tempi)<br>
+<span style="color:#8e24aa;border-bottom:2px dashed #8e24aa;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Deviazioni opzionali<br>
+<span style="color:#ef6c00;border-bottom:2px dashed #ef6c00;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Tratto a piedi Arnarstapi–Hellnar
+</div>
+    
+            <div class="folium-map" id="map_b77a4f3c15492377537806f790a523f5" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_b77a4f3c15492377537806f790a523f5 = L.map(
+                "map_b77a4f3c15492377537806f790a523f5",
+                {
+                    center: [64.7, -22.6],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_b77a4f3c15492377537806f790a523f5);
+
+            
+
+        
+    
+            var tile_layer_70ba325ffa6f6a0a048a899d90530b9b = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_70ba325ffa6f6a0a048a899d90530b9b.addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            var marker_bcc6d0695efe61ad1c29df189903d261 = L.marker(
+                [64.1421, -21.9147],
+                {
+}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            var beautify_icon_273c594dad71ec08c0a69f873d0a9e07 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#1976d2",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_bcc6d0695efe61ad1c29df189903d261.setIcon(beautify_icon_273c594dad71ec08c0a69f873d0a9e07);
+        
+    
+        var popup_e602da3588956000f01b59d31b1ee25b = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_9a61069b63c991cf44cf67407171d7ba = $(`<div id="html_9a61069b63c991cf44cf67407171d7ba" style="width: 100.0%; height: 100.0%;"><b>Hotel Klettur – Reykjavík</b><br>Partenza.</div>`)[0];
+                popup_e602da3588956000f01b59d31b1ee25b.setContent(html_9a61069b63c991cf44cf67407171d7ba);
+            
+        
+
+        marker_bcc6d0695efe61ad1c29df189903d261.bindPopup(popup_e602da3588956000f01b59d31b1ee25b)
+        ;
+
+        
+    
+    
+            marker_bcc6d0695efe61ad1c29df189903d261.bindTooltip(
+                `<div>
+                     Hotel Klettur (Start – Reykjavík)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bcc6d0695efe61ad1c29df189903d261.setIcon(beautify_icon_273c594dad71ec08c0a69f873d0a9e07);
+            
+    
+            var marker_35cc5d68ef6a448e479e23a2a1bfc46e = L.marker(
+                [64.8027, -23.0803],
+                {
+}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            var beautify_icon_3c57aaab5674571cfad2ec43f71fdd82 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#1976d2",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_35cc5d68ef6a448e479e23a2a1bfc46e.setIcon(beautify_icon_3c57aaab5674571cfad2ec43f71fdd82);
+        
+    
+        var popup_ebe17ace52b3225ad08664ba23256da9 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_83be64b608377db54662ab75a1b52142 = $(`<div id="html_83be64b608377db54662ab75a1b52142" style="width: 100.0%; height: 100.0%;"><b>Ytri Tunga – spiaggia delle foche</b><br>Visita: 30–40 min (meglio a bassa marea).</div>`)[0];
+                popup_ebe17ace52b3225ad08664ba23256da9.setContent(html_83be64b608377db54662ab75a1b52142);
+            
+        
+
+        marker_35cc5d68ef6a448e479e23a2a1bfc46e.bindPopup(popup_ebe17ace52b3225ad08664ba23256da9)
+        ;
+
+        
+    
+    
+            marker_35cc5d68ef6a448e479e23a2a1bfc46e.bindTooltip(
+                `<div>
+                     Ytri Tunga (seals)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_35cc5d68ef6a448e479e23a2a1bfc46e.setIcon(beautify_icon_3c57aaab5674571cfad2ec43f71fdd82);
+            
+    
+            var marker_42e6e94a87260f69eec1d0d09fa9686b = L.marker(
+                [64.8238, -23.386],
+                {
+}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            var beautify_icon_8b673dc068abbf72daa130f58fd627f4 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#1976d2",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_42e6e94a87260f69eec1d0d09fa9686b.setIcon(beautify_icon_8b673dc068abbf72daa130f58fd627f4);
+        
+    
+        var popup_fd7bf35f25a20694355f138e77850faf = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_47824c1a4a2ff285d0999ec56648f5a3 = $(`<div id="html_47824c1a4a2ff285d0999ec56648f5a3" style="width: 100.0%; height: 100.0%;"><b>Búðakirkja</b><br>Visita: 15–20 min. Parcheggio adiacente.</div>`)[0];
+                popup_fd7bf35f25a20694355f138e77850faf.setContent(html_47824c1a4a2ff285d0999ec56648f5a3);
+            
+        
+
+        marker_42e6e94a87260f69eec1d0d09fa9686b.bindPopup(popup_fd7bf35f25a20694355f138e77850faf)
+        ;
+
+        
+    
+    
+            marker_42e6e94a87260f69eec1d0d09fa9686b.bindTooltip(
+                `<div>
+                     Búðakirkja (Black Church)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_42e6e94a87260f69eec1d0d09fa9686b.setIcon(beautify_icon_8b673dc068abbf72daa130f58fd627f4);
+            
+    
+            var marker_126e7e95c6bb3cba94f86a3531cfc795 = L.marker(
+                [64.7736, -23.6227],
+                {
+}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            var beautify_icon_d9214b040a14a4eb4211db3fc3ffc3bc = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#1976d2",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_126e7e95c6bb3cba94f86a3531cfc795.setIcon(beautify_icon_d9214b040a14a4eb4211db3fc3ffc3bc);
+        
+    
+        var popup_d47ee53d1fb1e61dee63a5918c0b7cea = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_6893a794b00064dfc42391faeda399e0 = $(`<div id="html_6893a794b00064dfc42391faeda399e0" style="width: 100.0%; height: 100.0%;"><b>Arnarstapi</b><br>Inizio camminata costiera verso Hellnar (facile).</div>`)[0];
+                popup_d47ee53d1fb1e61dee63a5918c0b7cea.setContent(html_6893a794b00064dfc42391faeda399e0);
+            
+        
+
+        marker_126e7e95c6bb3cba94f86a3531cfc795.bindPopup(popup_d47ee53d1fb1e61dee63a5918c0b7cea)
+        ;
+
+        
+    
+    
+            marker_126e7e95c6bb3cba94f86a3531cfc795.bindTooltip(
+                `<div>
+                     Arnarstapi
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_126e7e95c6bb3cba94f86a3531cfc795.setIcon(beautify_icon_d9214b040a14a4eb4211db3fc3ffc3bc);
+            
+    
+            var marker_7db677d9f636b998ddf7db21fe35956d = L.marker(
+                [64.751, -23.646],
+                {
+}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            var beautify_icon_80c109d52c015232ab648355cccd4238 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#1976d2",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_7db677d9f636b998ddf7db21fe35956d.setIcon(beautify_icon_80c109d52c015232ab648355cccd4238);
+        
+    
+        var popup_8b00650c24b1f95a682db6f6585655e5 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_1e7a553fb0ee96545edc414adf7ee0d0 = $(`<div id="html_1e7a553fb0ee96545edc414adf7ee0d0" style="width: 100.0%; height: 100.0%;"><b>Hellnar</b><br>Fine camminata costiera da Arnarstapi (1.5–2 h A/R).</div>`)[0];
+                popup_8b00650c24b1f95a682db6f6585655e5.setContent(html_1e7a553fb0ee96545edc414adf7ee0d0);
+            
+        
+
+        marker_7db677d9f636b998ddf7db21fe35956d.bindPopup(popup_8b00650c24b1f95a682db6f6585655e5)
+        ;
+
+        
+    
+    
+            marker_7db677d9f636b998ddf7db21fe35956d.bindTooltip(
+                `<div>
+                     Hellnar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7db677d9f636b998ddf7db21fe35956d.setIcon(beautify_icon_80c109d52c015232ab648355cccd4238);
+            
+    
+            var marker_51a946ff5d3cc62b7681c90368141ab1 = L.marker(
+                [64.7785, -23.645],
+                {
+}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            var beautify_icon_a5cb46b294cb71ca3295f81e68450160 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#1976d2",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_51a946ff5d3cc62b7681c90368141ab1.setIcon(beautify_icon_a5cb46b294cb71ca3295f81e68450160);
+        
+    
+        var popup_1b65a78352c119ee1aa90b8e7037231c = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_d1cc97e8bd9afc9b441499c893dc9f8c = $(`<div id="html_d1cc97e8bd9afc9b441499c893dc9f8c" style="width: 100.0%; height: 100.0%;"><b>Rauðfeldsgjá Gorge</b><br>Stop: 30–45 min (10–15 min salita alla gola).</div>`)[0];
+                popup_1b65a78352c119ee1aa90b8e7037231c.setContent(html_d1cc97e8bd9afc9b441499c893dc9f8c);
+            
+        
+
+        marker_51a946ff5d3cc62b7681c90368141ab1.bindPopup(popup_1b65a78352c119ee1aa90b8e7037231c)
+        ;
+
+        
+    
+    
+            marker_51a946ff5d3cc62b7681c90368141ab1.bindTooltip(
+                `<div>
+                     Rauðfeldsgjá Gorge
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_51a946ff5d3cc62b7681c90368141ab1.setIcon(beautify_icon_a5cb46b294cb71ca3295f81e68450160);
+            
+    
+            var marker_2db912957f872e4c99b01c4354eeb280 = L.marker(
+                [64.734, -23.785],
+                {
+}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            var beautify_icon_47a08a82490e6be28016c40f477b607b = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#1976d2",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_2db912957f872e4c99b01c4354eeb280.setIcon(beautify_icon_47a08a82490e6be28016c40f477b607b);
+        
+    
+        var popup_19a1e56cfa1fba118ee60c8d55b2cbf2 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_21b855a2d1a8cb39c91e9cdedec9ee54 = $(`<div id="html_21b855a2d1a8cb39c91e9cdedec9ee54" style="width: 100.0%; height: 100.0%;"><b>Lóndrangar</b><br>Stop: 20–30 min. Parcheggio gratuito.</div>`)[0];
+                popup_19a1e56cfa1fba118ee60c8d55b2cbf2.setContent(html_21b855a2d1a8cb39c91e9cdedec9ee54);
+            
+        
+
+        marker_2db912957f872e4c99b01c4354eeb280.bindPopup(popup_19a1e56cfa1fba118ee60c8d55b2cbf2)
+        ;
+
+        
+    
+    
+            marker_2db912957f872e4c99b01c4354eeb280.bindTooltip(
+                `<div>
+                     Lóndrangar Cliffs
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2db912957f872e4c99b01c4354eeb280.setIcon(beautify_icon_47a08a82490e6be28016c40f477b607b);
+            
+    
+            var marker_ae96e7db8bf16f469c91d2b0b32de427 = L.marker(
+                [64.749, -23.871],
+                {
+}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            var beautify_icon_22482a28758be73d3310d290dc1603a8 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#1976d2",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_ae96e7db8bf16f469c91d2b0b32de427.setIcon(beautify_icon_22482a28758be73d3310d290dc1603a8);
+        
+    
+        var popup_b0efdf29ac4da16a757e4d5778ba840a = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_cf035f988f488f4b4e488cb43c824544 = $(`<div id="html_cf035f988f488f4b4e488cb43c824544" style="width: 100.0%; height: 100.0%;"><b>Djúpalónssandur</b><br>Stop: 30–45 min. Onde sneaker: mantenere distanza dall’acqua.</div>`)[0];
+                popup_b0efdf29ac4da16a757e4d5778ba840a.setContent(html_cf035f988f488f4b4e488cb43c824544);
+            
+        
+
+        marker_ae96e7db8bf16f469c91d2b0b32de427.bindPopup(popup_b0efdf29ac4da16a757e4d5778ba840a)
+        ;
+
+        
+    
+    
+            marker_ae96e7db8bf16f469c91d2b0b32de427.bindTooltip(
+                `<div>
+                     Djúpalónssandur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ae96e7db8bf16f469c91d2b0b32de427.setIcon(beautify_icon_22482a28758be73d3310d290dc1603a8);
+            
+    
+            var marker_dd7d0a821da039deedf2e3306e0be37d = L.marker(
+                [64.8516, -23.9276],
+                {
+}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            var beautify_icon_b8114b70bdaf3cf3590a2180dd7bb89a = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#1976d2",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_dd7d0a821da039deedf2e3306e0be37d.setIcon(beautify_icon_b8114b70bdaf3cf3590a2180dd7bb89a);
+        
+    
+        var popup_e93a68fabfe04b7a510c891dcffed79e = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_5f93932f7eaae0044a818d9a3435b456 = $(`<div id="html_5f93932f7eaae0044a818d9a3435b456" style="width: 100.0%; height: 100.0%;"><b>Saxhóll Crater</b><br>Stop: 25–35 min. Scala metallica fino al bordo (10–20 min).</div>`)[0];
+                popup_e93a68fabfe04b7a510c891dcffed79e.setContent(html_5f93932f7eaae0044a818d9a3435b456);
+            
+        
+
+        marker_dd7d0a821da039deedf2e3306e0be37d.bindPopup(popup_e93a68fabfe04b7a510c891dcffed79e)
+        ;
+
+        
+    
+    
+            marker_dd7d0a821da039deedf2e3306e0be37d.bindTooltip(
+                `<div>
+                     Saxhóll Crater
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_dd7d0a821da039deedf2e3306e0be37d.setIcon(beautify_icon_b8114b70bdaf3cf3590a2180dd7bb89a);
+            
+    
+            var marker_e14ad979c0efcca01fde2672c32d9eb2 = L.marker(
+                [64.8811, -23.9862],
+                {
+}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            var beautify_icon_40825d19a3759093ace99210d73e4100 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#6a1b9a",
+  "textColor": "white",
+  "backgroundColor": "#6a1b9a",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_e14ad979c0efcca01fde2672c32d9eb2.setIcon(beautify_icon_40825d19a3759093ace99210d73e4100);
+        
+    
+        var popup_4dca94f1e7021bb554e8e376db9e50b1 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_b847391ffed60f8c7c130e045d6e3ee6 = $(`<div id="html_b847391ffed60f8c7c130e045d6e3ee6" style="width: 100.0%; height: 100.0%;"><b>Skarðsvík – spiaggia dorata (extra)</b><br>Stop: 20–30 min. Strada bianca percorribile con 2WD con prudenza.</div>`)[0];
+                popup_4dca94f1e7021bb554e8e376db9e50b1.setContent(html_b847391ffed60f8c7c130e045d6e3ee6);
+            
+        
+
+        marker_e14ad979c0efcca01fde2672c32d9eb2.bindPopup(popup_4dca94f1e7021bb554e8e376db9e50b1)
+        ;
+
+        
+    
+    
+            marker_e14ad979c0efcca01fde2672c32d9eb2.bindTooltip(
+                `<div>
+                     Skarðsvík (spiaggia dorata) – extra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e14ad979c0efcca01fde2672c32d9eb2.setIcon(beautify_icon_40825d19a3759093ace99210d73e4100);
+            
+    
+            var marker_5650bc2ea141718acbd8e7e99b246414 = L.marker(
+                [64.8705, -24.026],
+                {
+}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            var beautify_icon_948f3c70abce7a342633cf77598f70c4 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#6a1b9a",
+  "textColor": "white",
+  "backgroundColor": "#6a1b9a",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_5650bc2ea141718acbd8e7e99b246414.setIcon(beautify_icon_948f3c70abce7a342633cf77598f70c4);
+        
+    
+        var popup_bc9273d096435a7a1ea9c9207ca18540 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_5b8b88023636c17af08cb4674ce77095 = $(`<div id="html_5b8b88023636c17af08cb4674ce77095" style="width: 100.0%; height: 100.0%;"><b>Svörtuloft Lighthouse (extra)</b><br>Stop: 20–30 min. Strada sterrata sconnessa: andare piano con 2WD.</div>`)[0];
+                popup_bc9273d096435a7a1ea9c9207ca18540.setContent(html_5b8b88023636c17af08cb4674ce77095);
+            
+        
+
+        marker_5650bc2ea141718acbd8e7e99b246414.bindPopup(popup_bc9273d096435a7a1ea9c9207ca18540)
+        ;
+
+        
+    
+    
+            marker_5650bc2ea141718acbd8e7e99b246414.bindTooltip(
+                `<div>
+                     Svörtuloft Lighthouse – extra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5650bc2ea141718acbd8e7e99b246414.setIcon(beautify_icon_948f3c70abce7a342633cf77598f70c4);
+            
+    
+            var marker_3142df7ee4fbd5e2703650a1df2c1826 = L.marker(
+                [64.904, -23.882],
+                {
+}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            var beautify_icon_82d61a40ad240f1de286cdb023288cd2 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#6a1b9a",
+  "textColor": "white",
+  "backgroundColor": "#6a1b9a",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_3142df7ee4fbd5e2703650a1df2c1826.setIcon(beautify_icon_82d61a40ad240f1de286cdb023288cd2);
+        
+    
+        var popup_fb43d819ee27a3f8909faeebde49d356 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_1e61248fd76177d08eb370fa88d479a1 = $(`<div id="html_1e61248fd76177d08eb370fa88d479a1" style="width: 100.0%; height: 100.0%;"><b>Ingjaldshóll Church (extra)</b><br>Stop: 10–15 min. Chiesa storica con bel panorama.</div>`)[0];
+                popup_fb43d819ee27a3f8909faeebde49d356.setContent(html_1e61248fd76177d08eb370fa88d479a1);
+            
+        
+
+        marker_3142df7ee4fbd5e2703650a1df2c1826.bindPopup(popup_fb43d819ee27a3f8909faeebde49d356)
+        ;
+
+        
+    
+    
+            marker_3142df7ee4fbd5e2703650a1df2c1826.bindTooltip(
+                `<div>
+                     Ingjaldshóll Church – extra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3142df7ee4fbd5e2703650a1df2c1826.setIcon(beautify_icon_82d61a40ad240f1de286cdb023288cd2);
+            
+    
+            var marker_0b1f68312fe562dc61fd5b5c5fdc7d1a = L.marker(
+                [64.927, -23.311],
+                {
+}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            var beautify_icon_baf9d5309757bcc7fba697f624e88b93 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#1976d2",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_0b1f68312fe562dc61fd5b5c5fdc7d1a.setIcon(beautify_icon_baf9d5309757bcc7fba697f624e88b93);
+        
+    
+        var popup_e60a5d20a94ebe5be4d9e0c860648b5a = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_350fb340fd0d7d599221bf50e89f48f5 = $(`<div id="html_350fb340fd0d7d599221bf50e89f48f5" style="width: 100.0%; height: 100.0%;"><b>Kirkjufellsfoss & Kirkjufell</b><br>Stop: 30–45 min. Sentiero/passerelle dal parcheggio.</div>`)[0];
+                popup_e60a5d20a94ebe5be4d9e0c860648b5a.setContent(html_350fb340fd0d7d599221bf50e89f48f5);
+            
+        
+
+        marker_0b1f68312fe562dc61fd5b5c5fdc7d1a.bindPopup(popup_e60a5d20a94ebe5be4d9e0c860648b5a)
+        ;
+
+        
+    
+    
+            marker_0b1f68312fe562dc61fd5b5c5fdc7d1a.bindTooltip(
+                `<div>
+                     Kirkjufellsfoss (viewpoint)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0b1f68312fe562dc61fd5b5c5fdc7d1a.setIcon(beautify_icon_baf9d5309757bcc7fba697f624e88b93);
+            
+    
+            var marker_fdaafd2257739da169af83c1cbc54c42 = L.marker(
+                [64.9249, -23.2644],
+                {
+}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            var beautify_icon_c47cc2b7f0e7f7f5549cdfcf3c3c8ceb = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#1976d2",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_fdaafd2257739da169af83c1cbc54c42.setIcon(beautify_icon_c47cc2b7f0e7f7f5549cdfcf3c3c8ceb);
+        
+    
+        var popup_7e6f5e957c02e3ad1d23c0cf4c358bc2 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_51f316266f874fdf40b75755b922b2b0 = $(`<div id="html_51f316266f874fdf40b75755b922b2b0" style="width: 100.0%; height: 100.0%;"><b>The Old Post Office Guesthouse – Grundarfjörður</b><br>Arrivo e pernottamento.</div>`)[0];
+                popup_7e6f5e957c02e3ad1d23c0cf4c358bc2.setContent(html_51f316266f874fdf40b75755b922b2b0);
+            
+        
+
+        marker_fdaafd2257739da169af83c1cbc54c42.bindPopup(popup_7e6f5e957c02e3ad1d23c0cf4c358bc2)
+        ;
+
+        
+    
+    
+            marker_fdaafd2257739da169af83c1cbc54c42.bindTooltip(
+                `<div>
+                     The Old Post Office Guesthouse (Arrivo)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fdaafd2257739da169af83c1cbc54c42.setIcon(beautify_icon_c47cc2b7f0e7f7f5549cdfcf3c3c8ceb);
+            
+    
+            var marker_d3724433796552531ee3c95c979b283a = L.marker(
+                [64.8023, -23.081],
+                {
+}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            var beautify_icon_217e32b136a6639539d7a14f2271437f = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#2e7d32",
+  "textColor": "white",
+  "backgroundColor": "#2e7d32",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_d3724433796552531ee3c95c979b283a.setIcon(beautify_icon_217e32b136a6639539d7a14f2271437f);
+        
+    
+        var popup_239723eec7c59d32d92fd0a1b2071560 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_132b4b865bcf2002bf1f75eb9cb2d67c = $(`<div id="html_132b4b865bcf2002bf1f75eb9cb2d67c" style="width: 100.0%; height: 100.0%;"><b>Ytri Tunga – parking</b></div>`)[0];
+                popup_239723eec7c59d32d92fd0a1b2071560.setContent(html_132b4b865bcf2002bf1f75eb9cb2d67c);
+            
+        
+
+        marker_d3724433796552531ee3c95c979b283a.bindPopup(popup_239723eec7c59d32d92fd0a1b2071560)
+        ;
+
+        
+    
+    
+            marker_d3724433796552531ee3c95c979b283a.bindTooltip(
+                `<div>
+                     Ytri Tunga – parking
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d3724433796552531ee3c95c979b283a.setIcon(beautify_icon_217e32b136a6639539d7a14f2271437f);
+            
+    
+            var marker_205c687f7eb91c9102bac5721a049032 = L.marker(
+                [64.7776, -23.6428],
+                {
+}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            var beautify_icon_5da9d7a348b1e6e066c5b4053d0b02a9 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#2e7d32",
+  "textColor": "white",
+  "backgroundColor": "#2e7d32",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_205c687f7eb91c9102bac5721a049032.setIcon(beautify_icon_5da9d7a348b1e6e066c5b4053d0b02a9);
+        
+    
+        var popup_07ad5d12593aae56e992a7426e5a58ea = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_f9021eed62dc2d9aa998939b0584fa35 = $(`<div id="html_f9021eed62dc2d9aa998939b0584fa35" style="width: 100.0%; height: 100.0%;"><b>Rauðfeldsgjá – parking</b></div>`)[0];
+                popup_07ad5d12593aae56e992a7426e5a58ea.setContent(html_f9021eed62dc2d9aa998939b0584fa35);
+            
+        
+
+        marker_205c687f7eb91c9102bac5721a049032.bindPopup(popup_07ad5d12593aae56e992a7426e5a58ea)
+        ;
+
+        
+    
+    
+            marker_205c687f7eb91c9102bac5721a049032.bindTooltip(
+                `<div>
+                     Rauðfeldsgjá – parking
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_205c687f7eb91c9102bac5721a049032.setIcon(beautify_icon_5da9d7a348b1e6e066c5b4053d0b02a9);
+            
+    
+            var marker_b7ec550abe32ea019ae506ab35934612 = L.marker(
+                [64.7332, -23.784],
+                {
+}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            var beautify_icon_f584da3698823aee1ebd146a6ce3caf5 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#2e7d32",
+  "textColor": "white",
+  "backgroundColor": "#2e7d32",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_b7ec550abe32ea019ae506ab35934612.setIcon(beautify_icon_f584da3698823aee1ebd146a6ce3caf5);
+        
+    
+        var popup_a9e48920a7605575ec5c1b4bef0a4508 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_adff9c6e3fd5f3383fe8a2b1fe8125cb = $(`<div id="html_adff9c6e3fd5f3383fe8a2b1fe8125cb" style="width: 100.0%; height: 100.0%;"><b>Lóndrangar – viewpoint parking</b></div>`)[0];
+                popup_a9e48920a7605575ec5c1b4bef0a4508.setContent(html_adff9c6e3fd5f3383fe8a2b1fe8125cb);
+            
+        
+
+        marker_b7ec550abe32ea019ae506ab35934612.bindPopup(popup_a9e48920a7605575ec5c1b4bef0a4508)
+        ;
+
+        
+    
+    
+            marker_b7ec550abe32ea019ae506ab35934612.bindTooltip(
+                `<div>
+                     Lóndrangar – viewpoint parking
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b7ec550abe32ea019ae506ab35934612.setIcon(beautify_icon_f584da3698823aee1ebd146a6ce3caf5);
+            
+    
+            var marker_0c1f4f7eea46ebcdde0e184c3073c8df = L.marker(
+                [64.7483, -23.8645],
+                {
+}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            var beautify_icon_5995b88cbc807cc0f0cf6ec08f203ece = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#2e7d32",
+  "textColor": "white",
+  "backgroundColor": "#2e7d32",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_0c1f4f7eea46ebcdde0e184c3073c8df.setIcon(beautify_icon_5995b88cbc807cc0f0cf6ec08f203ece);
+        
+    
+        var popup_b6dc3451f785a8062a8a326b7e79d00e = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_1198729b5817bdc5fcca1d380a0291d9 = $(`<div id="html_1198729b5817bdc5fcca1d380a0291d9" style="width: 100.0%; height: 100.0%;"><b>Djúpalónssandur – parking</b></div>`)[0];
+                popup_b6dc3451f785a8062a8a326b7e79d00e.setContent(html_1198729b5817bdc5fcca1d380a0291d9);
+            
+        
+
+        marker_0c1f4f7eea46ebcdde0e184c3073c8df.bindPopup(popup_b6dc3451f785a8062a8a326b7e79d00e)
+        ;
+
+        
+    
+    
+            marker_0c1f4f7eea46ebcdde0e184c3073c8df.bindTooltip(
+                `<div>
+                     Djúpalónssandur – parking
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0c1f4f7eea46ebcdde0e184c3073c8df.setIcon(beautify_icon_5995b88cbc807cc0f0cf6ec08f203ece);
+            
+    
+            var marker_e5b2e798206b47e0e9015bd068b04f9b = L.marker(
+                [64.9275, -23.3098],
+                {
+}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            var beautify_icon_d73e5b53897eea956d838bd6379d5b0b = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#2e7d32",
+  "textColor": "white",
+  "backgroundColor": "#2e7d32",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_e5b2e798206b47e0e9015bd068b04f9b.setIcon(beautify_icon_d73e5b53897eea956d838bd6379d5b0b);
+        
+    
+        var popup_5192e74f9877cc42b6a4deb65b5a2068 = L.popup({
+  "maxWidth": 360,
+});
+
+        
+            
+                var html_6d9cf14d246df39bbc8bf4806b8538c5 = $(`<div id="html_6d9cf14d246df39bbc8bf4806b8538c5" style="width: 100.0%; height: 100.0%;"><b>Kirkjufellsfoss – parking</b></div>`)[0];
+                popup_5192e74f9877cc42b6a4deb65b5a2068.setContent(html_6d9cf14d246df39bbc8bf4806b8538c5);
+            
+        
+
+        marker_e5b2e798206b47e0e9015bd068b04f9b.bindPopup(popup_5192e74f9877cc42b6a4deb65b5a2068)
+        ;
+
+        
+    
+    
+            marker_e5b2e798206b47e0e9015bd068b04f9b.bindTooltip(
+                `<div>
+                     Kirkjufellsfoss – parking
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e5b2e798206b47e0e9015bd068b04f9b.setIcon(beautify_icon_d73e5b53897eea956d838bd6379d5b0b);
+            
+    
+            var poly_line_11c6e6dea593c222c37ce5a4e7f7b71b = L.polyline(
+                [[64.1421, -21.9147], [64.8027, -23.0803]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.85, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            poly_line_11c6e6dea593c222c37ce5a4e7f7b71b.bindTooltip(
+                `<div>
+                     Hotel Klettur (Start – Reykjavík) → Ytri Tunga (seals) | 1h50–2h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_be3c5b74032671872b4e9fee7df91c77 = L.polyline(
+                [[64.8027, -23.0803], [64.8238, -23.386]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.85, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            poly_line_be3c5b74032671872b4e9fee7df91c77.bindTooltip(
+                `<div>
+                     Ytri Tunga (seals) → Búðakirkja (Black Church) | 15 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_fd646e374e2e7ac5427d485726b15bc3 = L.polyline(
+                [[64.8238, -23.386], [64.7736, -23.6227]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.85, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            poly_line_fd646e374e2e7ac5427d485726b15bc3.bindTooltip(
+                `<div>
+                     Búðakirkja (Black Church) → Arnarstapi | 20 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_022fe38f8fdc77722a4f9991eafb2455 = L.polyline(
+                [[64.7736, -23.6227], [64.7785, -23.645]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.85, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            poly_line_022fe38f8fdc77722a4f9991eafb2455.bindTooltip(
+                `<div>
+                     Arnarstapi → Rauðfeldsgjá Gorge | 10 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_29ca05dcff1ab96a67841d1fdf3ee0dd = L.polyline(
+                [[64.7785, -23.645], [64.734, -23.785]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.85, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            poly_line_29ca05dcff1ab96a67841d1fdf3ee0dd.bindTooltip(
+                `<div>
+                     Rauðfeldsgjá Gorge → Lóndrangar Cliffs | 15 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_4377c49a625af3262ef4823c0c822bdc = L.polyline(
+                [[64.734, -23.785], [64.749, -23.871]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.85, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            poly_line_4377c49a625af3262ef4823c0c822bdc.bindTooltip(
+                `<div>
+                     Lóndrangar Cliffs → Djúpalónssandur | 10 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_6b1f0396ea4fbaf7c29cf9ab1276f1d7 = L.polyline(
+                [[64.749, -23.871], [64.8516, -23.9276]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.85, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            poly_line_6b1f0396ea4fbaf7c29cf9ab1276f1d7.bindTooltip(
+                `<div>
+                     Djúpalónssandur → Saxhóll Crater | 10 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_c075f22642194369c8645c4d56ce9fc3 = L.polyline(
+                [[64.8516, -23.9276], [64.927, -23.311]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.85, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            poly_line_c075f22642194369c8645c4d56ce9fc3.bindTooltip(
+                `<div>
+                     Saxhóll Crater → Kirkjufellsfoss (viewpoint) | 1 h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_3dd55a0d2c6f8854c44b07bdace82328 = L.polyline(
+                [[64.927, -23.311], [64.9249, -23.2644]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.85, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            poly_line_3dd55a0d2c6f8854c44b07bdace82328.bindTooltip(
+                `<div>
+                     Kirkjufellsfoss (viewpoint) → The Old Post Office Guesthouse (Arrivo) | 5 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_ae72ddc4d9d057e97c9fc6184d26c523 = L.polyline(
+                [[64.8516, -23.9276], [64.8811, -23.9862]],
+                {"bubblingMouseEvents": true, "color": "#8e24aa", "dashArray": "6,8", "dashOffset": null, "fill": false, "fillColor": "#8e24aa", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            poly_line_ae72ddc4d9d057e97c9fc6184d26c523.bindTooltip(
+                `<div>
+                     Deviazione opzionale: Saxhóll Crater → Skarðsvík (spiaggia dorata) – extra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_0c392cf343ad0981314ecdea22959c9e = L.polyline(
+                [[64.8811, -23.9862], [64.8705, -24.026]],
+                {"bubblingMouseEvents": true, "color": "#8e24aa", "dashArray": "6,8", "dashOffset": null, "fill": false, "fillColor": "#8e24aa", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            poly_line_0c392cf343ad0981314ecdea22959c9e.bindTooltip(
+                `<div>
+                     Deviazione opzionale: Skarðsvík (spiaggia dorata) – extra → Svörtuloft Lighthouse – extra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d9eeed947dbba586c6792ef1d2ea5446 = L.polyline(
+                [[64.8516, -23.9276], [64.904, -23.882]],
+                {"bubblingMouseEvents": true, "color": "#8e24aa", "dashArray": "6,8", "dashOffset": null, "fill": false, "fillColor": "#8e24aa", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            poly_line_d9eeed947dbba586c6792ef1d2ea5446.bindTooltip(
+                `<div>
+                     Deviazione opzionale: Saxhóll Crater → Ingjaldshóll Church – extra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_e54b2e0fc2bb307c37b332de2f76ad9e = L.polyline(
+                [[64.7736, -23.6227], [64.751, -23.646]],
+                {"bubblingMouseEvents": true, "color": "#ef6c00", "dashArray": "6,8", "dashOffset": null, "fill": false, "fillColor": "#ef6c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_b77a4f3c15492377537806f790a523f5);
+        
+    
+            poly_line_e54b2e0fc2bb307c37b332de2f76ad9e.bindTooltip(
+                `<div>
+                     Passeggiata costiera Arnarstapi ↔ Hellnar ~1.5–2 h A/R
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

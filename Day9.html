@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<style>
+html, body {height:100%; margin:0; padding:0;}
+.folium-map {width:100%; height:100%;}
+.leaflet-control-zoom a {width:42px; height:42px; line-height:42px;}
+.leaflet-control {margin:10px !important;}
+</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_66e900d7871e25f4e534c410797fe709 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.css"/>
+</head>
+<body>
+    
+    
+<div style="position: fixed; bottom: 20px; left: 20px; z-index: 9999; background: white; padding: 10px 12px; border: 1px solid #ccc; box-shadow: 0 2px 6px rgba(0,0,0,.2); font-size: 13px; max-width: 340px;">
+<b>Legenda – Giorno 9</b><br>
+<span style="display:inline-block;width:14px;height:14px;background:#00695c;margin-right:6px;"></span> Partenza<br>
+<span style="display:inline-block;width:14px;height:14px;background:#2e7d32;margin-right:6px;"></span> Pausa consigliata<br>
+<span style="display:inline-block;width:14px;height:14px;background:#1976d2;margin-right:6px;"></span> Blue Lagoon (consigliata)<br>
+<span style="display:inline-block;width:14px;height:14px;background:#6a1b9a;margin-right:6px;"></span> Sky Lagoon (alternativa)<br>
+<span style="display:inline-block;width:14px;height:14px;background:#c62828;margin-right:6px;"></span> KEF – Car Return (h17:00)<br>
+<span style="color:#1565c0;">━━━</span> Percorso consigliato<br>
+<span style="color:#8e24aa;border-bottom:2px dashed #8e24aa;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Percorso alternativo
+</div>
+    
+            <div class="folium-map" id="map_66e900d7871e25f4e534c410797fe709" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_66e900d7871e25f4e534c410797fe709 = L.map(
+                "map_66e900d7871e25f4e534c410797fe709",
+                {
+                    center: [64.35, -22.6],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_66e900d7871e25f4e534c410797fe709);
+
+            
+
+        
+    
+            var tile_layer_0f46a197394790c7555557954cce6dc5 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_0f46a197394790c7555557954cce6dc5.addTo(map_66e900d7871e25f4e534c410797fe709);
+        
+    
+            var marker_f897eb5f74f930aa856cf304d5d69fea = L.marker(
+                [64.9249, -23.2644],
+                {
+}
+            ).addTo(map_66e900d7871e25f4e534c410797fe709);
+        
+    
+            var beautify_icon_d65652a28229026b15446b4f7ef0e331 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#00695c",
+  "textColor": "white",
+  "backgroundColor": "#00695c",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_f897eb5f74f930aa856cf304d5d69fea.setIcon(beautify_icon_d65652a28229026b15446b4f7ef0e331);
+        
+    
+        var popup_5a1739e09cf0533f14fd7dd7544498aa = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_edf04e626417fd2d67bb214e0b282e77 = $(`<div id="html_edf04e626417fd2d67bb214e0b282e77" style="width: 100.0%; height: 100.0%;"><b>The Old Post Office Guesthouse – Grundarfjörður</b><br>Partenza consigliata: <b>08:30–09:00</b>.</div>`)[0];
+                popup_5a1739e09cf0533f14fd7dd7544498aa.setContent(html_edf04e626417fd2d67bb214e0b282e77);
+            
+        
+
+        marker_f897eb5f74f930aa856cf304d5d69fea.bindPopup(popup_5a1739e09cf0533f14fd7dd7544498aa)
+        ;
+
+        
+    
+    
+            marker_f897eb5f74f930aa856cf304d5d69fea.bindTooltip(
+                `<div>
+                     The Old Post Office Guesthouse (Start)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f897eb5f74f930aa856cf304d5d69fea.setIcon(beautify_icon_d65652a28229026b15446b4f7ef0e331);
+            
+    
+            var marker_aa7ea47e14fdf6573a12a6811c386525 = L.marker(
+                [64.5369, -21.9203],
+                {
+}
+            ).addTo(map_66e900d7871e25f4e534c410797fe709);
+        
+    
+            var beautify_icon_6e2da879ac243922f6a0ed96cb446240 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#2e7d32",
+  "textColor": "white",
+  "backgroundColor": "#2e7d32",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_aa7ea47e14fdf6573a12a6811c386525.setIcon(beautify_icon_6e2da879ac243922f6a0ed96cb446240);
+        
+    
+        var popup_2d39378dbb3482c7124979f5d1f67f8d = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_26aa53a28327af01a52eed00d818b730 = $(`<div id="html_26aa53a28327af01a52eed00d818b730" style="width: 100.0%; height: 100.0%;"><b>Borgarnes</b><br>Pausa caffè/pranzo veloce (30–45 min).<br>Consiglio: fai qui un rabbocco carburante se serve.</div>`)[0];
+                popup_2d39378dbb3482c7124979f5d1f67f8d.setContent(html_26aa53a28327af01a52eed00d818b730);
+            
+        
+
+        marker_aa7ea47e14fdf6573a12a6811c386525.bindPopup(popup_2d39378dbb3482c7124979f5d1f67f8d)
+        ;
+
+        
+    
+    
+            marker_aa7ea47e14fdf6573a12a6811c386525.bindTooltip(
+                `<div>
+                     Borgarnes (pausa consigliata)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_aa7ea47e14fdf6573a12a6811c386525.setIcon(beautify_icon_6e2da879ac243922f6a0ed96cb446240);
+            
+    
+            var marker_84e3f84bec101e048ac856a9bb1ec1d3 = L.marker(
+                [63.88, -22.449],
+                {
+}
+            ).addTo(map_66e900d7871e25f4e534c410797fe709);
+        
+    
+            var beautify_icon_505bebd4d6fcabf77a97054326513910 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#1976d2",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_84e3f84bec101e048ac856a9bb1ec1d3.setIcon(beautify_icon_505bebd4d6fcabf77a97054326513910);
+        
+    
+        var popup_6aceec5a33a5bbb1e5e3ad3f419b2632 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_9bfa44b3780299cb1060c61454e3e23f = $(`<div id="html_9bfa44b3780299cb1060c61454e3e23f" style="width: 100.0%; height: 100.0%;"><b>Blue Lagoon</b><br>Ingresso target: <b>14:00–14:30</b><br>Permanenza: <b>~2 h</b><br>Uscita target: <b>~16:15</b><br>Parcheggio: <b>gratuito</b>.</div>`)[0];
+                popup_6aceec5a33a5bbb1e5e3ad3f419b2632.setContent(html_9bfa44b3780299cb1060c61454e3e23f);
+            
+        
+
+        marker_84e3f84bec101e048ac856a9bb1ec1d3.bindPopup(popup_6aceec5a33a5bbb1e5e3ad3f419b2632)
+        ;
+
+        
+    
+    
+            marker_84e3f84bec101e048ac856a9bb1ec1d3.bindTooltip(
+                `<div>
+                     Blue Lagoon (raccomandata)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_84e3f84bec101e048ac856a9bb1ec1d3.setIcon(beautify_icon_505bebd4d6fcabf77a97054326513910);
+            
+    
+            var marker_dee88b94756ccaff49125b713ff159e6 = L.marker(
+                [64.1043, -21.943],
+                {
+}
+            ).addTo(map_66e900d7871e25f4e534c410797fe709);
+        
+    
+            var beautify_icon_5cef8e9fd4d96b927b8d5209c28ec383 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#6a1b9a",
+  "textColor": "white",
+  "backgroundColor": "#6a1b9a",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_dee88b94756ccaff49125b713ff159e6.setIcon(beautify_icon_5cef8e9fd4d96b927b8d5209c28ec383);
+        
+    
+        var popup_bedf6bbb20a10e555d37551b829db563 = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_f6ce455e33595b04215cb2582d22a595 = $(`<div id="html_f6ce455e33595b04215cb2582d22a595" style="width: 100.0%; height: 100.0%;"><b>Sky Lagoon</b><br>Ingresso target: <b>~13:30</b><br>Permanenza: <b>~1.5–2 h</b><br>Uscita target: <b>~15:30–16:00</b><br>Parcheggio: <b>gratuito</b>.</div>`)[0];
+                popup_bedf6bbb20a10e555d37551b829db563.setContent(html_f6ce455e33595b04215cb2582d22a595);
+            
+        
+
+        marker_dee88b94756ccaff49125b713ff159e6.bindPopup(popup_bedf6bbb20a10e555d37551b829db563)
+        ;
+
+        
+    
+    
+            marker_dee88b94756ccaff49125b713ff159e6.bindTooltip(
+                `<div>
+                     Sky Lagoon (alternativa)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_dee88b94756ccaff49125b713ff159e6.setIcon(beautify_icon_5cef8e9fd4d96b927b8d5209c28ec383);
+            
+    
+            var marker_f05813699076f7f822e18c1b58d4b346 = L.marker(
+                [63.9964, -22.6236],
+                {
+}
+            ).addTo(map_66e900d7871e25f4e534c410797fe709);
+        
+    
+            var beautify_icon_7f1bf95a23ff8ff6e9019295afaf5d8c = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#c62828",
+  "textColor": "white",
+  "backgroundColor": "#c62828",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_f05813699076f7f822e18c1b58d4b346.setIcon(beautify_icon_7f1bf95a23ff8ff6e9019295afaf5d8c);
+        
+    
+        var popup_f82b19f1e5b2e9cd8ae1699a0ec91a4b = L.popup({
+  "maxWidth": 400,
+});
+
+        
+            
+                var html_584227ce9a2ba987b5ffffb37cd7ac59 = $(`<div id="html_584227ce9a2ba987b5ffffb37cd7ac59" style="width: 100.0%; height: 100.0%;"><b>KEF – Riconsegna auto</b><br><b>Obiettivo: 17:00</b><br>Check-in volo: 20:00.</div>`)[0];
+                popup_f82b19f1e5b2e9cd8ae1699a0ec91a4b.setContent(html_584227ce9a2ba987b5ffffb37cd7ac59);
+            
+        
+
+        marker_f05813699076f7f822e18c1b58d4b346.bindPopup(popup_f82b19f1e5b2e9cd8ae1699a0ec91a4b)
+        ;
+
+        
+    
+    
+            marker_f05813699076f7f822e18c1b58d4b346.bindTooltip(
+                `<div>
+                     Keflavík Airport – Car Return (h17:00)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f05813699076f7f822e18c1b58d4b346.setIcon(beautify_icon_7f1bf95a23ff8ff6e9019295afaf5d8c);
+            
+    
+            var poly_line_4cd98b57b19163183eda6d8bdae82c9e = L.polyline(
+                [[64.9249, -23.2644], [64.5369, -21.9203]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_66e900d7871e25f4e534c410797fe709);
+        
+    
+            poly_line_4cd98b57b19163183eda6d8bdae82c9e.bindTooltip(
+                `<div>
+                     The Old Post Office Guesthouse (Start) → Borgarnes (pausa consigliata) | 1h45′
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_d238a7f06b84879abd4f1273bf9fd808 = L.polyline(
+                [[64.5369, -21.9203], [63.88, -22.449]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_66e900d7871e25f4e534c410797fe709);
+        
+    
+            poly_line_d238a7f06b84879abd4f1273bf9fd808.bindTooltip(
+                `<div>
+                     Borgarnes (pausa consigliata) → Blue Lagoon (raccomandata) | 1h40–2h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_93179ca91ea344a051a85b0d064a2ed9 = L.polyline(
+                [[63.88, -22.449], [63.9964, -22.6236]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_66e900d7871e25f4e534c410797fe709);
+        
+    
+            poly_line_93179ca91ea344a051a85b0d064a2ed9.bindTooltip(
+                `<div>
+                     Blue Lagoon (raccomandata) → Keflavík Airport – Car Return (h17:00) | 20–25 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_4a23e2928e76e40d5c4ef7f7e02d9b2b = L.polyline(
+                [[64.9249, -23.2644], [64.5369, -21.9203]],
+                {"bubblingMouseEvents": true, "color": "#8e24aa", "dashArray": "6,8", "dashOffset": null, "fill": false, "fillColor": "#8e24aa", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.85, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_66e900d7871e25f4e534c410797fe709);
+        
+    
+            poly_line_4a23e2928e76e40d5c4ef7f7e02d9b2b.bindTooltip(
+                `<div>
+                     Alternativa: The Old Post Office Guesthouse (Start) → Borgarnes (pausa consigliata) | 1h45′
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_3548ba457331b0c9f2e1a6eae31e6633 = L.polyline(
+                [[64.5369, -21.9203], [64.1043, -21.943]],
+                {"bubblingMouseEvents": true, "color": "#8e24aa", "dashArray": "6,8", "dashOffset": null, "fill": false, "fillColor": "#8e24aa", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.85, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_66e900d7871e25f4e534c410797fe709);
+        
+    
+            poly_line_3548ba457331b0c9f2e1a6eae31e6633.bindTooltip(
+                `<div>
+                     Alternativa: Borgarnes (pausa consigliata) → Sky Lagoon (alternativa) | 1h15–1h25
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_37eb5ca698203a99cfd4ef88c91908bb = L.polyline(
+                [[64.1043, -21.943], [63.9964, -22.6236]],
+                {"bubblingMouseEvents": true, "color": "#8e24aa", "dashArray": "6,8", "dashOffset": null, "fill": false, "fillColor": "#8e24aa", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.85, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_66e900d7871e25f4e534c410797fe709);
+        
+    
+            poly_line_37eb5ca698203a99cfd4ef88c91908bb.bindTooltip(
+                `<div>
+                     Alternativa: Sky Lagoon (alternativa) → Keflavík Airport – Car Return (h17:00) | 45–50 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

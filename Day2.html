@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_4e6ceff38c11e911eb2cedf318111d35 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.css"/>
+</head>
+<body>
+    
+    
+<div style="position: fixed; bottom: 20px; left: 20px; z-index: 9999; background: white; padding: 10px 12px; border: 1px solid #ccc; box-shadow: 0 2px 6px rgba(0,0,0,.2); font-size: 13px; max-width: 260px;">
+<b>Legenda</b><br>
+<span style="display:inline-block;width:14px;height:4px;background:#1565c0;margin-right:6px;vertical-align:middle;"></span> Guida<br>
+<span style="display:inline-block;width:14px;height:4px;background:#ef6c00;margin-right:6px;vertical-align:middle;border-bottom:1px dashed #ef6c00;"></span> A piedi<br>
+<span style="display:inline-block;width:14px;height:4px;background:#00897b;margin-right:6px;vertical-align:middle;border-bottom:1px dashed #00897b;"></span> Tratto opzionale<br>
+<span style="display:inline-block;width:14px;height:14px;background:#1976d2;color:white;border-radius:50%;text-align:center;line-height:14px;margin-right:6px;">#</span> Tappa principale<br>
+<span style="display:inline-block;width:14px;height:14px;background:#a5d6a7;border:1px solid #2e7d32;margin-right:6px;"></span> Parcheggio<br>
+<span style="display:inline-block;width:14px;height:14px;background:#e1bee7;border:1px solid #6a1b9a;margin-right:6px;"></span> Extra da vedere
+</div>
+    
+            <div class="folium-map" id="map_4e6ceff38c11e911eb2cedf318111d35" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_4e6ceff38c11e911eb2cedf318111d35 = L.map(
+                "map_4e6ceff38c11e911eb2cedf318111d35",
+                {
+                    center: [64.1, -20.5],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 8,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_640a7523e74c3d15e791a0b31543298f = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_640a7523e74c3d15e791a0b31543298f.addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            var marker_294addfd25b45fffad6eb98936cdf8c1 = L.marker(
+                [64.1355, -21.8954],
+                {
+}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            var beautify_icon_dbaa00277c19f8bb644ea1ee0c19cbc6 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#0d47a1",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 1,
+}
+            )
+            marker_294addfd25b45fffad6eb98936cdf8c1.setIcon(beautify_icon_dbaa00277c19f8bb644ea1ee0c19cbc6);
+        
+    
+        var popup_81a2f3628c85ff4bdfddd8b383460ddd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2e2e2a96a0289ce1b6cf2231402e306c = $(`<div id="html_2e2e2a96a0289ce1b6cf2231402e306c" style="width: 100.0%; height: 100.0%;"><b>1. Reykjavík (partenza)</b></div>`)[0];
+                popup_81a2f3628c85ff4bdfddd8b383460ddd.setContent(html_2e2e2a96a0289ce1b6cf2231402e306c);
+            
+        
+
+        marker_294addfd25b45fffad6eb98936cdf8c1.bindPopup(popup_81a2f3628c85ff4bdfddd8b383460ddd)
+        ;
+
+        
+    
+    
+            marker_294addfd25b45fffad6eb98936cdf8c1.bindTooltip(
+                `<div>
+                     Reykjavík (partenza)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_294addfd25b45fffad6eb98936cdf8c1.setIcon(beautify_icon_dbaa00277c19f8bb644ea1ee0c19cbc6);
+            
+    
+            var marker_d9333cccd52d71249d825de5b790a395 = L.marker(
+                [64.2548, -21.1217],
+                {
+}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            var beautify_icon_95dddf3407a21ac53bf44064ef44e154 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#0d47a1",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 2,
+}
+            )
+            marker_d9333cccd52d71249d825de5b790a395.setIcon(beautify_icon_95dddf3407a21ac53bf44064ef44e154);
+        
+    
+        var popup_c502b9d1f46973c8e681fac138651916 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_21bfaebdf4d08d77dbda80bd8279262c = $(`<div id="html_21bfaebdf4d08d77dbda80bd8279262c" style="width: 100.0%; height: 100.0%;"><b>2. Þingvellir – P1 Hakið / Almannagjá</b></div>`)[0];
+                popup_c502b9d1f46973c8e681fac138651916.setContent(html_21bfaebdf4d08d77dbda80bd8279262c);
+            
+        
+
+        marker_d9333cccd52d71249d825de5b790a395.bindPopup(popup_c502b9d1f46973c8e681fac138651916)
+        ;
+
+        
+    
+    
+            marker_d9333cccd52d71249d825de5b790a395.bindTooltip(
+                `<div>
+                     Þingvellir – P1 Hakið / Almannagjá
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d9333cccd52d71249d825de5b790a395.setIcon(beautify_icon_95dddf3407a21ac53bf44064ef44e154);
+            
+    
+            var marker_796a3e18f93261da6ae478227539f6c2 = L.marker(
+                [64.2598, -21.1197],
+                {
+}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            var beautify_icon_aeabc3cc1113ccede189d54b76752633 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#0d47a1",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 3,
+}
+            )
+            marker_796a3e18f93261da6ae478227539f6c2.setIcon(beautify_icon_aeabc3cc1113ccede189d54b76752633);
+        
+    
+        var popup_2510bc47957f5535a4451adbe8650d49 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5173abe2154227f4a7d69f5a9bd9cf9f = $(`<div id="html_5173abe2154227f4a7d69f5a9bd9cf9f" style="width: 100.0%; height: 100.0%;"><b>3. Öxarárfoss (Thingvellir)</b></div>`)[0];
+                popup_2510bc47957f5535a4451adbe8650d49.setContent(html_5173abe2154227f4a7d69f5a9bd9cf9f);
+            
+        
+
+        marker_796a3e18f93261da6ae478227539f6c2.bindPopup(popup_2510bc47957f5535a4451adbe8650d49)
+        ;
+
+        
+    
+    
+            marker_796a3e18f93261da6ae478227539f6c2.bindTooltip(
+                `<div>
+                     Öxarárfoss (Thingvellir)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_796a3e18f93261da6ae478227539f6c2.setIcon(beautify_icon_aeabc3cc1113ccede189d54b76752633);
+            
+    
+            var marker_b6457e01c96937a7688fa1e31d43d2db = L.marker(
+                [64.2402, -20.5238],
+                {
+}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            var beautify_icon_0d5f0a353085cc2e8a88604d3d28c339 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#0d47a1",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 4,
+}
+            )
+            marker_b6457e01c96937a7688fa1e31d43d2db.setIcon(beautify_icon_0d5f0a353085cc2e8a88604d3d28c339);
+        
+    
+        var popup_a1642e18a314fea9e8beb8062f7d82fc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ce9da949fd14f40130d82c50366e84a0 = $(`<div id="html_ce9da949fd14f40130d82c50366e84a0" style="width: 100.0%; height: 100.0%;"><b>4. Brúarfoss (blu waterfall)</b></div>`)[0];
+                popup_a1642e18a314fea9e8beb8062f7d82fc.setContent(html_ce9da949fd14f40130d82c50366e84a0);
+            
+        
+
+        marker_b6457e01c96937a7688fa1e31d43d2db.bindPopup(popup_a1642e18a314fea9e8beb8062f7d82fc)
+        ;
+
+        
+    
+    
+            marker_b6457e01c96937a7688fa1e31d43d2db.bindTooltip(
+                `<div>
+                     Brúarfoss (blu waterfall)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b6457e01c96937a7688fa1e31d43d2db.setIcon(beautify_icon_0d5f0a353085cc2e8a88604d3d28c339);
+            
+    
+            var marker_73debed8564b9c1ee6fa68f7e7831272 = L.marker(
+                [64.3131, -20.3006],
+                {
+}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            var beautify_icon_88a8de87ff78750f0b3d3bd94a83cfd6 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#0d47a1",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 5,
+}
+            )
+            marker_73debed8564b9c1ee6fa68f7e7831272.setIcon(beautify_icon_88a8de87ff78750f0b3d3bd94a83cfd6);
+        
+    
+        var popup_64e7ae354aaabcc0c363cc57455b6889 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8b148c245d1d2eb1bd33275f05cdcbcf = $(`<div id="html_8b148c245d1d2eb1bd33275f05cdcbcf" style="width: 100.0%; height: 100.0%;"><b>5. Geysir/Strokkur (Haukadalur)</b></div>`)[0];
+                popup_64e7ae354aaabcc0c363cc57455b6889.setContent(html_8b148c245d1d2eb1bd33275f05cdcbcf);
+            
+        
+
+        marker_73debed8564b9c1ee6fa68f7e7831272.bindPopup(popup_64e7ae354aaabcc0c363cc57455b6889)
+        ;
+
+        
+    
+    
+            marker_73debed8564b9c1ee6fa68f7e7831272.bindTooltip(
+                `<div>
+                     Geysir/Strokkur (Haukadalur)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_73debed8564b9c1ee6fa68f7e7831272.setIcon(beautify_icon_88a8de87ff78750f0b3d3bd94a83cfd6);
+            
+    
+            var marker_816dccc8d79ea0145eb08c2a9e220ccb = L.marker(
+                [64.3261, -20.1211],
+                {
+}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            var beautify_icon_c0abbb758fec654ecbec2eb6980dfb05 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#0d47a1",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 6,
+}
+            )
+            marker_816dccc8d79ea0145eb08c2a9e220ccb.setIcon(beautify_icon_c0abbb758fec654ecbec2eb6980dfb05);
+        
+    
+        var popup_a12bfddfbc49b55b906e2070c12af086 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9f675ae05bcc4086b4da6539874e9a54 = $(`<div id="html_9f675ae05bcc4086b4da6539874e9a54" style="width: 100.0%; height: 100.0%;"><b>6. Gullfoss</b></div>`)[0];
+                popup_a12bfddfbc49b55b906e2070c12af086.setContent(html_9f675ae05bcc4086b4da6539874e9a54);
+            
+        
+
+        marker_816dccc8d79ea0145eb08c2a9e220ccb.bindPopup(popup_a12bfddfbc49b55b906e2070c12af086)
+        ;
+
+        
+    
+    
+            marker_816dccc8d79ea0145eb08c2a9e220ccb.bindTooltip(
+                `<div>
+                     Gullfoss
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_816dccc8d79ea0145eb08c2a9e220ccb.setIcon(beautify_icon_c0abbb758fec654ecbec2eb6980dfb05);
+            
+    
+            var marker_ccac4c45166ab0fcaf204dfec536d8ac = L.marker(
+                [64.04, -20.888],
+                {
+}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            var beautify_icon_a7ac6fb9e453f335b2db368b2b309bc6 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#0d47a1",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 7,
+}
+            )
+            marker_ccac4c45166ab0fcaf204dfec536d8ac.setIcon(beautify_icon_a7ac6fb9e453f335b2db368b2b309bc6);
+        
+    
+        var popup_bcb567e33a7e66a48a1c7172c75db8b5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1063f3cdf24ee275de7a1a737d0b1f53 = $(`<div id="html_1063f3cdf24ee275de7a1a737d0b1f53" style="width: 100.0%; height: 100.0%;"><b>7. Kerið Crater (opzionale)</b></div>`)[0];
+                popup_bcb567e33a7e66a48a1c7172c75db8b5.setContent(html_1063f3cdf24ee275de7a1a737d0b1f53);
+            
+        
+
+        marker_ccac4c45166ab0fcaf204dfec536d8ac.bindPopup(popup_bcb567e33a7e66a48a1c7172c75db8b5)
+        ;
+
+        
+    
+    
+            marker_ccac4c45166ab0fcaf204dfec536d8ac.bindTooltip(
+                `<div>
+                     Kerið Crater (opzionale)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ccac4c45166ab0fcaf204dfec536d8ac.setIcon(beautify_icon_a7ac6fb9e453f335b2db368b2b309bc6);
+            
+    
+            var marker_d4705f0d12c79483ced55ada27bebb0d = L.marker(
+                [63.7246, -20.0399],
+                {
+}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            var beautify_icon_c07b15111d96d5d1e1289fa9bec84a12 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#0d47a1",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 8,
+}
+            )
+            marker_d4705f0d12c79483ced55ada27bebb0d.setIcon(beautify_icon_c07b15111d96d5d1e1289fa9bec84a12);
+        
+    
+        var popup_fbe7dc228a3e98d879756421904f0972 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_333e2ebdfff7e31203a287c7a352d7c9 = $(`<div id="html_333e2ebdfff7e31203a287c7a352d7c9" style="width: 100.0%; height: 100.0%;"><b>8. Hellishólar Hótel Eyjafjallajökull (arrivo)</b></div>`)[0];
+                popup_fbe7dc228a3e98d879756421904f0972.setContent(html_333e2ebdfff7e31203a287c7a352d7c9);
+            
+        
+
+        marker_d4705f0d12c79483ced55ada27bebb0d.bindPopup(popup_fbe7dc228a3e98d879756421904f0972)
+        ;
+
+        
+    
+    
+            marker_d4705f0d12c79483ced55ada27bebb0d.bindTooltip(
+                `<div>
+                     Hellishólar Hótel Eyjafjallajökull (arrivo)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d4705f0d12c79483ced55ada27bebb0d.setIcon(beautify_icon_c07b15111d96d5d1e1289fa9bec84a12);
+            
+    
+            var marker_c85ec384b9cc4bd6141be11cad1edaf0 = L.marker(
+                [64.2559, -21.1296],
+                {
+}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            var beautify_icon_27ade4c92871375afd31cb4994d08ce4 = new L.BeautifyIcon.icon(
+                {
+  "icon": "fa-car",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#2e7d32",
+  "textColor": "#1b5e20",
+  "backgroundColor": "#a5d6a7",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_c85ec384b9cc4bd6141be11cad1edaf0.setIcon(beautify_icon_27ade4c92871375afd31cb4994d08ce4);
+        
+    
+        var popup_0ebf0a085e1b32a92e3f1bfa21f89877 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e31de263fdaa9f1198d5ec42cde63d5b = $(`<div id="html_e31de263fdaa9f1198d5ec42cde63d5b" style="width: 100.0%; height: 100.0%;"><b>Þingvellir – P1 Hakið (pagamento)</b><br/>Auto ~1000 ISK/giorno; pagamento Checkit / macchinette. Valido per P1–P3 & P5.</div>`)[0];
+                popup_0ebf0a085e1b32a92e3f1bfa21f89877.setContent(html_e31de263fdaa9f1198d5ec42cde63d5b);
+            
+        
+
+        marker_c85ec384b9cc4bd6141be11cad1edaf0.bindPopup(popup_0ebf0a085e1b32a92e3f1bfa21f89877)
+        ;
+
+        
+    
+    
+            marker_c85ec384b9cc4bd6141be11cad1edaf0.bindTooltip(
+                `<div>
+                     Þingvellir – P1 Hakið (pagamento)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c85ec384b9cc4bd6141be11cad1edaf0.setIcon(beautify_icon_27ade4c92871375afd31cb4994d08ce4);
+            
+    
+            var marker_981b042555f40573965ce720b3964f39 = L.marker(
+                [64.2647, -21.1143],
+                {
+}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            var beautify_icon_d9818d575cda22fda0a74bc5929c01ae = new L.BeautifyIcon.icon(
+                {
+  "icon": "fa-car",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#2e7d32",
+  "textColor": "#1b5e20",
+  "backgroundColor": "#a5d6a7",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_981b042555f40573965ce720b3964f39.setIcon(beautify_icon_d9818d575cda22fda0a74bc5929c01ae);
+        
+    
+        var popup_b2c073f279610c4069519e68a4f062a9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fe73bf6c3a01b8e6f33231d58685262a = $(`<div id="html_fe73bf6c3a01b8e6f33231d58685262a" style="width: 100.0%; height: 100.0%;"><b>Þingvellir – P2 (per Almannagjá/Öxarárfoss)</b><br/>Ottimo per scendere nella gola e camminare verso Öxarárfoss (15–20 min).</div>`)[0];
+                popup_b2c073f279610c4069519e68a4f062a9.setContent(html_fe73bf6c3a01b8e6f33231d58685262a);
+            
+        
+
+        marker_981b042555f40573965ce720b3964f39.bindPopup(popup_b2c073f279610c4069519e68a4f062a9)
+        ;
+
+        
+    
+    
+            marker_981b042555f40573965ce720b3964f39.bindTooltip(
+                `<div>
+                     Þingvellir – P2 (per Almannagjá/Öxarárfoss)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_981b042555f40573965ce720b3964f39.setIcon(beautify_icon_d9818d575cda22fda0a74bc5929c01ae);
+            
+    
+            var marker_3a34b5e4a2302e9c054f0146737fa47a = L.marker(
+                [64.2455, -20.5225],
+                {
+}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            var beautify_icon_e6b81ea2f5332acac7538deb9f52c927 = new L.BeautifyIcon.icon(
+                {
+  "icon": "fa-car",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#2e7d32",
+  "textColor": "#1b5e20",
+  "backgroundColor": "#a5d6a7",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_3a34b5e4a2302e9c054f0146737fa47a.setIcon(beautify_icon_e6b81ea2f5332acac7538deb9f52c927);
+        
+    
+        var popup_0ff6187c1212380f00152c39663b4704 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_295c550c8739ccfb9a48a53aeb57bfa8 = $(`<div id="html_295c550c8739ccfb9a48a53aeb57bfa8" style="width: 100.0%; height: 100.0%;"><b>Brúarfoss – Parking (vicino alla cascata)</b><br/>Strada dissestata, parcheggio a pagamento ~750 ISK; 5–10 min a piedi alla cascata.</div>`)[0];
+                popup_0ff6187c1212380f00152c39663b4704.setContent(html_295c550c8739ccfb9a48a53aeb57bfa8);
+            
+        
+
+        marker_3a34b5e4a2302e9c054f0146737fa47a.bindPopup(popup_0ff6187c1212380f00152c39663b4704)
+        ;
+
+        
+    
+    
+            marker_3a34b5e4a2302e9c054f0146737fa47a.bindTooltip(
+                `<div>
+                     Brúarfoss – Parking (vicino alla cascata)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3a34b5e4a2302e9c054f0146737fa47a.setIcon(beautify_icon_e6b81ea2f5332acac7538deb9f52c927);
+            
+    
+            var marker_bc141c4cb03774c2261baf742424e5ac = L.marker(
+                [64.3137, -20.3009],
+                {
+}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            var beautify_icon_b777bece10f2682081cff4f8daaeda32 = new L.BeautifyIcon.icon(
+                {
+  "icon": "fa-car",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#2e7d32",
+  "textColor": "#1b5e20",
+  "backgroundColor": "#a5d6a7",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_bc141c4cb03774c2261baf742424e5ac.setIcon(beautify_icon_b777bece10f2682081cff4f8daaeda32);
+        
+    
+        var popup_004e9c67728d477d085f3fa4f9b48095 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6efb71a1294f51dc58e5a9740ecebfab = $(`<div id="html_6efb71a1294f51dc58e5a9740ecebfab" style="width: 100.0%; height: 100.0%;"><b>Geysir – parcheggio visitatori (a pagamento)</b><br/>Ampio; tariffa indicativa 750–1000 ISK (Parka).</div>`)[0];
+                popup_004e9c67728d477d085f3fa4f9b48095.setContent(html_6efb71a1294f51dc58e5a9740ecebfab);
+            
+        
+
+        marker_bc141c4cb03774c2261baf742424e5ac.bindPopup(popup_004e9c67728d477d085f3fa4f9b48095)
+        ;
+
+        
+    
+    
+            marker_bc141c4cb03774c2261baf742424e5ac.bindTooltip(
+                `<div>
+                     Geysir – parcheggio visitatori (a pagamento)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bc141c4cb03774c2261baf742424e5ac.setIcon(beautify_icon_b777bece10f2682081cff4f8daaeda32);
+            
+    
+            var marker_86ae632ece02dc8770ee2148f149e34b = L.marker(
+                [64.3269, -20.1212],
+                {
+}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            var beautify_icon_b7e7d5b3ab55408d28ad6e984be0a4f9 = new L.BeautifyIcon.icon(
+                {
+  "icon": "fa-car",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#2e7d32",
+  "textColor": "#1b5e20",
+  "backgroundColor": "#a5d6a7",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_86ae632ece02dc8770ee2148f149e34b.setIcon(beautify_icon_b7e7d5b3ab55408d28ad6e984be0a4f9);
+        
+    
+        var popup_d9afadb010a18271992705d3fb4ddb2c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e935207f12bc83735b007d333d1b4d6a = $(`<div id="html_e935207f12bc83735b007d333d1b4d6a" style="width: 100.0%; height: 100.0%;"><b>Gullfoss – Upper car park (gratuito)</b><br/>Gratis 24/7. Servizi/ristoro al Visitor Center.</div>`)[0];
+                popup_d9afadb010a18271992705d3fb4ddb2c.setContent(html_e935207f12bc83735b007d333d1b4d6a);
+            
+        
+
+        marker_86ae632ece02dc8770ee2148f149e34b.bindPopup(popup_d9afadb010a18271992705d3fb4ddb2c)
+        ;
+
+        
+    
+    
+            marker_86ae632ece02dc8770ee2148f149e34b.bindTooltip(
+                `<div>
+                     Gullfoss – Upper car park (gratuito)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_86ae632ece02dc8770ee2148f149e34b.setIcon(beautify_icon_b7e7d5b3ab55408d28ad6e984be0a4f9);
+            
+    
+            var marker_d807b9c37f2d16359d70511c14b51487 = L.marker(
+                [64.0405, -20.8865],
+                {
+}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            var beautify_icon_5ac3ef4c24bd62f03906de5c99de4b74 = new L.BeautifyIcon.icon(
+                {
+  "icon": "fa-car",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#2e7d32",
+  "textColor": "#1b5e20",
+  "backgroundColor": "#a5d6a7",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_d807b9c37f2d16359d70511c14b51487.setIcon(beautify_icon_5ac3ef4c24bd62f03906de5c99de4b74);
+        
+    
+        var popup_a45e54fdfd3625b4ac74486920f2a09d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_eed8dc3ab6b21aa7f28bbe7036ddf535 = $(`<div id="html_eed8dc3ab6b21aa7f28bbe7036ddf535" style="width: 100.0%; height: 100.0%;"><b>Kerið – parcheggio (gratuito, ingresso 600 ISK)</b><br/>Parcheggio gratuito; biglietto d’ingresso 600 ISK pp.</div>`)[0];
+                popup_a45e54fdfd3625b4ac74486920f2a09d.setContent(html_eed8dc3ab6b21aa7f28bbe7036ddf535);
+            
+        
+
+        marker_d807b9c37f2d16359d70511c14b51487.bindPopup(popup_a45e54fdfd3625b4ac74486920f2a09d)
+        ;
+
+        
+    
+    
+            marker_d807b9c37f2d16359d70511c14b51487.bindTooltip(
+                `<div>
+                     Kerið – parcheggio (gratuito, ingresso 600 ISK)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d807b9c37f2d16359d70511c14b51487.setIcon(beautify_icon_5ac3ef4c24bd62f03906de5c99de4b74);
+            
+    
+            var marker_b8ce42f5ca3e85f5d662107d96738fd5 = L.marker(
+                [63.7246, -20.0399],
+                {
+}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            var beautify_icon_e112a1174c5ef80b366cb1e94c5349e4 = new L.BeautifyIcon.icon(
+                {
+  "icon": "fa-car",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#2e7d32",
+  "textColor": "#1b5e20",
+  "backgroundColor": "#a5d6a7",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_b8ce42f5ca3e85f5d662107d96738fd5.setIcon(beautify_icon_e112a1174c5ef80b366cb1e94c5349e4);
+        
+    
+        var popup_dfe961c0bbfa818249a07031d7908bf9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_96191f48531e46c4bd1e94c957d19e44 = $(`<div id="html_96191f48531e46c4bd1e94c957d19e44" style="width: 100.0%; height: 100.0%;"><b>Hellishólar Hotel – parcheggio (gratuito)</b><br/>Parcheggio gratuito in struttura.</div>`)[0];
+                popup_dfe961c0bbfa818249a07031d7908bf9.setContent(html_96191f48531e46c4bd1e94c957d19e44);
+            
+        
+
+        marker_b8ce42f5ca3e85f5d662107d96738fd5.bindPopup(popup_dfe961c0bbfa818249a07031d7908bf9)
+        ;
+
+        
+    
+    
+            marker_b8ce42f5ca3e85f5d662107d96738fd5.bindTooltip(
+                `<div>
+                     Hellishólar Hotel – parcheggio (gratuito)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b8ce42f5ca3e85f5d662107d96738fd5.setIcon(beautify_icon_e112a1174c5ef80b366cb1e94c5349e4);
+            
+    
+            var marker_c3a2f20142aa7638c5277116295ccf2d = L.marker(
+                [64.2148, -20.7302],
+                {
+}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            var beautify_icon_2c90534074ab5d6a9c8875f9514a6696 = new L.BeautifyIcon.icon(
+                {
+  "icon": "fa-star",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#6a1b9a",
+  "textColor": "#4a148c",
+  "backgroundColor": "#e1bee7",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_c3a2f20142aa7638c5277116295ccf2d.setIcon(beautify_icon_2c90534074ab5d6a9c8875f9514a6696);
+        
+    
+        var popup_92989fdbea03a3e424f1a73dfc977753 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_906a75d280c0dbd52720906c3f52b161 = $(`<div id="html_906a75d280c0dbd52720906c3f52b161" style="width: 100.0%; height: 100.0%;"><b>Laugarvatn Fontana (terme)</b><br/>Sosta relax tra Þingvellir e Geysir. Parcheggio sul posto.</div>`)[0];
+                popup_92989fdbea03a3e424f1a73dfc977753.setContent(html_906a75d280c0dbd52720906c3f52b161);
+            
+        
+
+        marker_c3a2f20142aa7638c5277116295ccf2d.bindPopup(popup_92989fdbea03a3e424f1a73dfc977753)
+        ;
+
+        
+    
+    
+            marker_c3a2f20142aa7638c5277116295ccf2d.bindTooltip(
+                `<div>
+                     Laugarvatn Fontana (terme)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c3a2f20142aa7638c5277116295ccf2d.setIcon(beautify_icon_2c90534074ab5d6a9c8875f9514a6696);
+            
+    
+            var marker_d5267f3b359d0f40c20b6f1309a2094a = L.marker(
+                [64.1368, -20.6579],
+                {
+}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            var beautify_icon_89442d2ce00e2d35c67e58d4ee18bcf1 = new L.BeautifyIcon.icon(
+                {
+  "icon": "fa-star",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#6a1b9a",
+  "textColor": "#4a148c",
+  "backgroundColor": "#e1bee7",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_d5267f3b359d0f40c20b6f1309a2094a.setIcon(beautify_icon_89442d2ce00e2d35c67e58d4ee18bcf1);
+        
+    
+        var popup_ab032040317f45e61d9b64e8a65407b0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_af7a2dd49177d88f5725e5a4ac9ef02f = $(`<div id="html_af7a2dd49177d88f5725e5a4ac9ef02f" style="width: 100.0%; height: 100.0%;"><b>Skálholt Cathedral</b><br/>Sito storico sulla Golden Circle; parcheggio gratuito.</div>`)[0];
+                popup_ab032040317f45e61d9b64e8a65407b0.setContent(html_af7a2dd49177d88f5725e5a4ac9ef02f);
+            
+        
+
+        marker_d5267f3b359d0f40c20b6f1309a2094a.bindPopup(popup_ab032040317f45e61d9b64e8a65407b0)
+        ;
+
+        
+    
+    
+            marker_d5267f3b359d0f40c20b6f1309a2094a.bindTooltip(
+                `<div>
+                     Skálholt Cathedral
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d5267f3b359d0f40c20b6f1309a2094a.setIcon(beautify_icon_89442d2ce00e2d35c67e58d4ee18bcf1);
+            
+    
+            var marker_a8a59338f4f68223f72ed8a15c48dc85 = L.marker(
+                [64.2256, -20.3377],
+                {
+}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            var beautify_icon_37ce5cc28c430ea2ac01c673863d446f = new L.BeautifyIcon.icon(
+                {
+  "icon": "fa-star",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#6a1b9a",
+  "textColor": "#4a148c",
+  "backgroundColor": "#e1bee7",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_a8a59338f4f68223f72ed8a15c48dc85.setIcon(beautify_icon_37ce5cc28c430ea2ac01c673863d446f);
+        
+    
+        var popup_4e714a20d5c13fdec416a142b4642704 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e6cceb179821deec1371912a7f36a908 = $(`<div id="html_e6cceb179821deec1371912a7f36a908" style="width: 100.0%; height: 100.0%;"><b>Faxi / Vatnsleysufoss</b><br/>Cascata ampia; parcheggio a pagamento (~700–900 ISK).</div>`)[0];
+                popup_4e714a20d5c13fdec416a142b4642704.setContent(html_e6cceb179821deec1371912a7f36a908);
+            
+        
+
+        marker_a8a59338f4f68223f72ed8a15c48dc85.bindPopup(popup_4e714a20d5c13fdec416a142b4642704)
+        ;
+
+        
+    
+    
+            marker_a8a59338f4f68223f72ed8a15c48dc85.bindTooltip(
+                `<div>
+                     Faxi / Vatnsleysufoss
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a8a59338f4f68223f72ed8a15c48dc85.setIcon(beautify_icon_37ce5cc28c430ea2ac01c673863d446f);
+            
+    
+            var marker_9532d9f216047a227c79729611f50770 = L.marker(
+                [64.1373, -20.3075],
+                {
+}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            var beautify_icon_41fd41bdeb9cf6a19e8d8e989c14f716 = new L.BeautifyIcon.icon(
+                {
+  "icon": "fa-star",
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#6a1b9a",
+  "textColor": "#4a148c",
+  "backgroundColor": "#e1bee7",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_9532d9f216047a227c79729611f50770.setIcon(beautify_icon_41fd41bdeb9cf6a19e8d8e989c14f716);
+        
+    
+        var popup_1b1f9946bc682d926d07fcbfe3fa9e70 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c5543dc4cde6fea615df367c8be7db1d = $(`<div id="html_c5543dc4cde6fea615df367c8be7db1d" style="width: 100.0%; height: 100.0%;"><b>Secret Lagoon (Flúðir)</b><br/>Sorgenti termali storiche; prenotazione consigliata.</div>`)[0];
+                popup_1b1f9946bc682d926d07fcbfe3fa9e70.setContent(html_c5543dc4cde6fea615df367c8be7db1d);
+            
+        
+
+        marker_9532d9f216047a227c79729611f50770.bindPopup(popup_1b1f9946bc682d926d07fcbfe3fa9e70)
+        ;
+
+        
+    
+    
+            marker_9532d9f216047a227c79729611f50770.bindTooltip(
+                `<div>
+                     Secret Lagoon (Flúðir)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9532d9f216047a227c79729611f50770.setIcon(beautify_icon_41fd41bdeb9cf6a19e8d8e989c14f716);
+            
+    
+            var poly_line_fb77ec265eee665272e95f76d36541a3 = L.polyline(
+                [[64.1355, -21.8954], [64.2548, -21.1217]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            poly_line_fb77ec265eee665272e95f76d36541a3.bindTooltip(
+                `<div>
+                     Reykjavík (partenza) → Þingvellir – P1 Hakið / Almannagjá | 45–60 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_efcf63dea981c126fd0642597f2c2f7e = L.polyline(
+                [[64.2548, -21.1217], [64.2598, -21.1197]],
+                {"bubblingMouseEvents": true, "color": "#ef6c00", "dashArray": "4,8", "dashOffset": null, "fill": false, "fillColor": "#ef6c00", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            poly_line_efcf63dea981c126fd0642597f2c2f7e.bindTooltip(
+                `<div>
+                     Þingvellir – P1 Hakið / Almannagjá → Öxarárfoss (Thingvellir) | 15–20 min da P2 (5–10 min dal più vicino)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_b50121463c63d57b7992247a40a38170 = L.polyline(
+                [[64.2548, -21.1217], [64.2402, -20.5238]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            poly_line_b50121463c63d57b7992247a40a38170.bindTooltip(
+                `<div>
+                     Þingvellir – P1 Hakið / Almannagjá → Brúarfoss (blu waterfall) | 40–45 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_6388a80c9bb95995f34aafb038086ef4 = L.polyline(
+                [[64.2402, -20.5238], [64.3131, -20.3006]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            poly_line_6388a80c9bb95995f34aafb038086ef4.bindTooltip(
+                `<div>
+                     Brúarfoss (blu waterfall) → Geysir/Strokkur (Haukadalur) | 10–15 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_b1446bcc85354ef5f337c88f88be77e2 = L.polyline(
+                [[64.3131, -20.3006], [64.3261, -20.1211]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            poly_line_b1446bcc85354ef5f337c88f88be77e2.bindTooltip(
+                `<div>
+                     Geysir/Strokkur (Haukadalur) → Gullfoss | 10–12 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_1a86f9baba7541f7df28600a9de0c8e4 = L.polyline(
+                [[64.3261, -20.1211], [64.04, -20.888]],
+                {"bubblingMouseEvents": true, "color": "#00897b", "dashArray": "5,10", "dashOffset": null, "fill": false, "fillColor": "#00897b", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            poly_line_1a86f9baba7541f7df28600a9de0c8e4.bindTooltip(
+                `<div>
+                     Gullfoss → Kerið Crater (opzionale) | ~45–50 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9fd5e4c15f762258d90a7faf796fc006 = L.polyline(
+                [[64.04, -20.888], [63.7246, -20.0399]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            poly_line_9fd5e4c15f762258d90a7faf796fc006.bindTooltip(
+                `<div>
+                     Kerið Crater (opzionale) → Hellishólar Hótel Eyjafjallajökull (arrivo) | 50–60 min (via Selfoss/Hvolsvöllur)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_357ad7325bcf316983a30509c8496b61 = L.polyline(
+                [[64.3261, -20.1211], [63.7246, -20.0399]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_4e6ceff38c11e911eb2cedf318111d35);
+        
+    
+            poly_line_357ad7325bcf316983a30509c8496b61.bindTooltip(
+                `<div>
+                     Gullfoss → Hellishólar Hótel Eyjafjallajökull (arrivo) | ~1 h 20 min via 30→1 (stima)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

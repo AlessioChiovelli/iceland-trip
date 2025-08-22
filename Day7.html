@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<style>
+html, body {height:100%; margin:0; padding:0;}
+.folium-map {width:100%; height:100%;}
+.leaflet-control-zoom a {width:42px; height:42px; line-height:42px;}
+.leaflet-control {margin:10px !important;}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css" rel="stylesheet"/>
+<meta content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<style>
+                #map_289153bb355afb0d60db29d6cf1c0891 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+<style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+<style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+<script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+<script src="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.css" rel="stylesheet"/>
+</meta></head>
+<body>
+<div style="position: fixed; bottom: 20px; left: 20px; z-index: 9999; background: white; padding: 10px 12px; border: 1px solid #ccc; box-shadow: 0 2px 6px rgba(0,0,0,.2); font-size: 13px; max-width: 300px;">
+<b>Legenda – Giorno 7</b><br/>
+<span style="display:inline-block;width:14px;height:14px;background:#1976d2;margin-right:6px;"></span> Tappe principali<br/>
+<span style="display:inline-block;width:14px;height:14px;background:#6a1b9a;margin-right:6px;"></span> Extra (spot in viola)<br/>
+<span style="color:#1565c0;">━━━</span> Percorso in auto (con tempi)<br/>
+<span style="color:#8e24aa; border-bottom:2px dashed #8e24aa;">     </span> Deviazione lunga opzionale
+</div>
+<div class="folium-map" id="map_289153bb355afb0d60db29d6cf1c0891"></div>
+</body>
+<script>
+    
+    
+            var map_289153bb355afb0d60db29d6cf1c0891 = L.map(
+                "map_289153bb355afb0d60db29d6cf1c0891",
+                {
+                    center: [64.0, -21.3],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 9,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_289153bb355afb0d60db29d6cf1c0891);
+
+            
+
+        
+    
+            var tile_layer_bffdd7caa547319fe66dd56e76f7b9b3 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_bffdd7caa547319fe66dd56e76f7b9b3.addTo(map_289153bb355afb0d60db29d6cf1c0891);
+        
+    
+            var marker_43ff855b83abd5b1b1be44316971fd3a = L.marker(
+                [63.9331, -21.0011],
+                {
+}
+            ).addTo(map_289153bb355afb0d60db29d6cf1c0891);
+        
+    
+            var beautify_icon_42649072d94ac131ef78212477174ee4 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#1976d2",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_43ff855b83abd5b1b1be44316971fd3a.setIcon(beautify_icon_42649072d94ac131ef78212477174ee4);
+        
+    
+        var popup_346af593a79e19d8df39bd0dd5312161 = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_ff79a3065ffb501e9943479ae96d32a9 = $(`<div id="html_ff79a3065ffb501e9943479ae96d32a9" style="width: 100.0%; height: 100.0%;"><b>Hotel Selfoss</b><br>Partenza</div>`)[0];
+                popup_346af593a79e19d8df39bd0dd5312161.setContent(html_ff79a3065ffb501e9943479ae96d32a9);
+            
+        
+
+        marker_43ff855b83abd5b1b1be44316971fd3a.bindPopup(popup_346af593a79e19d8df39bd0dd5312161)
+        ;
+
+        
+    
+    
+            marker_43ff855b83abd5b1b1be44316971fd3a.bindTooltip(
+                `<div>
+                     Hotel Selfoss (start)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_43ff855b83abd5b1b1be44316971fd3a.setIcon(beautify_icon_42649072d94ac131ef78212477174ee4);
+            
+    
+            var marker_93cfadaf776b56f9e38eb20d71a22bcc = L.marker(
+                [63.934, -20.996],
+                {
+}
+            ).addTo(map_289153bb355afb0d60db29d6cf1c0891);
+        
+    
+            var beautify_icon_0f6e066947d07c515652b88333511d71 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#1976d2",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_93cfadaf776b56f9e38eb20d71a22bcc.setIcon(beautify_icon_0f6e066947d07c515652b88333511d71);
+        
+    
+        var popup_5d87398372e6e5d31b6fc8c8522ef0ca = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_8ab72c095a0c7ed40e27d0c64d354ffc = $(`<div id="html_8ab72c095a0c7ed40e27d0c64d354ffc" style="width: 100.0%; height: 100.0%;"><b>Kerið Crater</b><br>Visita: 20–30 min<br>Ingresso ~450 ISK pp; parcheggio incluso</div>`)[0];
+                popup_5d87398372e6e5d31b6fc8c8522ef0ca.setContent(html_8ab72c095a0c7ed40e27d0c64d354ffc);
+            
+        
+
+        marker_93cfadaf776b56f9e38eb20d71a22bcc.bindPopup(popup_5d87398372e6e5d31b6fc8c8522ef0ca)
+        ;
+
+        
+    
+    
+            marker_93cfadaf776b56f9e38eb20d71a22bcc.bindTooltip(
+                `<div>
+                     Kerið Crater
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_93cfadaf776b56f9e38eb20d71a22bcc.setIcon(beautify_icon_0f6e066947d07c515652b88333511d71);
+            
+    
+            var marker_2b7c76762c2eb35df23cc7df2514649e = L.marker(
+                [64.0415, -21.2135],
+                {
+}
+            ).addTo(map_289153bb355afb0d60db29d6cf1c0891);
+        
+    
+            var beautify_icon_4514580545ab7d6fa99fafd049b389b9 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#1976d2",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_2b7c76762c2eb35df23cc7df2514649e.setIcon(beautify_icon_4514580545ab7d6fa99fafd049b389b9);
+        
+    
+        var popup_0f616582ce6f8f95c42e7b1a10c8ce27 = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_e69a7311f3a5e04bd7f1073ce095709b = $(`<div id="html_e69a7311f3a5e04bd7f1073ce095709b" style="width: 100.0%; height: 100.0%;"><b>Reykjadalur – Hot River</b><br>Trekking: ~2h30’ A/R (3.5 km per direzione)<br>Parcheggio gratuito</div>`)[0];
+                popup_0f616582ce6f8f95c42e7b1a10c8ce27.setContent(html_e69a7311f3a5e04bd7f1073ce095709b);
+            
+        
+
+        marker_2b7c76762c2eb35df23cc7df2514649e.bindPopup(popup_0f616582ce6f8f95c42e7b1a10c8ce27)
+        ;
+
+        
+    
+    
+            marker_2b7c76762c2eb35df23cc7df2514649e.bindTooltip(
+                `<div>
+                     Reykjadalur Hot River (parking)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2b7c76762c2eb35df23cc7df2514649e.setIcon(beautify_icon_4514580545ab7d6fa99fafd049b389b9);
+            
+    
+            var marker_a55f38b8f51d01888a572eb86a6be5ce = L.marker(
+                [63.9388, -21.3918],
+                {
+}
+            ).addTo(map_289153bb355afb0d60db29d6cf1c0891);
+        
+    
+            var beautify_icon_fe48968a1359459044fafe5da433e97f = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#6a1b9a",
+  "textColor": "white",
+  "backgroundColor": "#6a1b9a",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_a55f38b8f51d01888a572eb86a6be5ce.setIcon(beautify_icon_fe48968a1359459044fafe5da433e97f);
+        
+    
+        var popup_f6da113ad8ad9c9f62815a67bbfdebf9 = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_7277d349d1e1988fb4aba741568e25a0 = $(`<div id="html_7277d349d1e1988fb4aba741568e25a0" style="width: 100.0%; height: 100.0%;"><b>Raufarhólshellir – Lava Tunnel</b><br>Tour guidato ~1h (prenotazione consigliata)</div>`)[0];
+                popup_f6da113ad8ad9c9f62815a67bbfdebf9.setContent(html_7277d349d1e1988fb4aba741568e25a0);
+            
+        
+
+        marker_a55f38b8f51d01888a572eb86a6be5ce.bindPopup(popup_f6da113ad8ad9c9f62815a67bbfdebf9)
+        ;
+
+        
+    
+    
+            marker_a55f38b8f51d01888a572eb86a6be5ce.bindTooltip(
+                `<div>
+                     Raufarhólshellir – The Lava Tunnel (extra)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a55f38b8f51d01888a572eb86a6be5ce.setIcon(beautify_icon_fe48968a1359459044fafe5da433e97f);
+            
+    
+            var marker_f40b985eae8b65e531893e4456e29f7f = L.marker(
+                [64.3205, -21.6395],
+                {
+}
+            ).addTo(map_289153bb355afb0d60db29d6cf1c0891);
+        
+    
+            var beautify_icon_0750fb796d367cff7eadb88662e97302 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#1976d2",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_f40b985eae8b65e531893e4456e29f7f.setIcon(beautify_icon_0750fb796d367cff7eadb88662e97302);
+        
+    
+        var popup_7522a93957e34922f03ead8a103ac942 = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_41e7d0d01dc3d96b97eea186eb5d09a6 = $(`<div id="html_41e7d0d01dc3d96b97eea186eb5d09a6" style="width: 100.0%; height: 100.0%;"><b>Hvammsvík Hot Springs</b><br>Visita: 1.5–2h<br>Biglietto da ~8.900 ISK; parcheggio gratuito</div>`)[0];
+                popup_7522a93957e34922f03ead8a103ac942.setContent(html_41e7d0d01dc3d96b97eea186eb5d09a6);
+            
+        
+
+        marker_f40b985eae8b65e531893e4456e29f7f.bindPopup(popup_7522a93957e34922f03ead8a103ac942)
+        ;
+
+        
+    
+    
+            marker_f40b985eae8b65e531893e4456e29f7f.bindTooltip(
+                `<div>
+                     Hvammsvík Hot Springs
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f40b985eae8b65e531893e4456e29f7f.setIcon(beautify_icon_0750fb796d367cff7eadb88662e97302);
+            
+    
+            var marker_12ed8d9aa230435265554cf3f5e1e7b1 = L.marker(
+                [63.4145, -19.071],
+                {
+}
+            ).addTo(map_289153bb355afb0d60db29d6cf1c0891);
+        
+    
+            var beautify_icon_018ad3de84635be764812e5a6a4b3e76 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#6a1b9a",
+  "textColor": "white",
+  "backgroundColor": "#6a1b9a",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_12ed8d9aa230435265554cf3f5e1e7b1.setIcon(beautify_icon_018ad3de84635be764812e5a6a4b3e76);
+        
+    
+        var popup_c1d4838cbd5d498064fbc1463d382e99 = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_e8f713e84222b6b5dc8153138b68d8e4 = $(`<div id="html_e8f713e84222b6b5dc8153138b68d8e4" style="width: 100.0%; height: 100.0%;"><b>Reynisfjall Viewpoint</b><br>Deviazione lunga da Selfoss (~1h45–2h a tratta). Consigliato solo se non visto nei giorni precedenti.</div>`)[0];
+                popup_c1d4838cbd5d498064fbc1463d382e99.setContent(html_e8f713e84222b6b5dc8153138b68d8e4);
+            
+        
+
+        marker_12ed8d9aa230435265554cf3f5e1e7b1.bindPopup(popup_c1d4838cbd5d498064fbc1463d382e99)
+        ;
+
+        
+    
+    
+            marker_12ed8d9aa230435265554cf3f5e1e7b1.bindTooltip(
+                `<div>
+                     Reynisfjall Viewpoint (extra – lunga deviazione)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_12ed8d9aa230435265554cf3f5e1e7b1.setIcon(beautify_icon_018ad3de84635be764812e5a6a4b3e76);
+            
+    
+            var marker_a458487e0d5b029543647309442630da = L.marker(
+                [64.1421, -21.9147],
+                {
+}
+            ).addTo(map_289153bb355afb0d60db29d6cf1c0891);
+        
+    
+            var beautify_icon_5be29ea22076932309ebb07e74e79921 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "#1976d2",
+  "textColor": "white",
+  "backgroundColor": "#1976d2",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_a458487e0d5b029543647309442630da.setIcon(beautify_icon_5be29ea22076932309ebb07e74e79921);
+        
+    
+        var popup_bda73d6066d87a09b2e7f309e86294b5 = L.popup({
+  "maxWidth": 320,
+});
+
+        
+            
+                var html_ad54a2aa92750b296e23e36c7d1cc638 = $(`<div id="html_ad54a2aa92750b296e23e36c7d1cc638" style="width: 100.0%; height: 100.0%;"><b>Hotel Klettur – Reykjavík</b><br>Arrivo</div>`)[0];
+                popup_bda73d6066d87a09b2e7f309e86294b5.setContent(html_ad54a2aa92750b296e23e36c7d1cc638);
+            
+        
+
+        marker_a458487e0d5b029543647309442630da.bindPopup(popup_bda73d6066d87a09b2e7f309e86294b5)
+        ;
+
+        
+    
+    
+            marker_a458487e0d5b029543647309442630da.bindTooltip(
+                `<div>
+                     Hotel Klettur (arrivo)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a458487e0d5b029543647309442630da.setIcon(beautify_icon_5be29ea22076932309ebb07e74e79921);
+            
+    
+            var poly_line_23250edad88aeac881c60a0fed31e346 = L.polyline(
+                [[63.9331, -21.0011], [63.934, -20.996]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_289153bb355afb0d60db29d6cf1c0891);
+        
+    
+            poly_line_23250edad88aeac881c60a0fed31e346.bindTooltip(
+                `<div>
+                     Hotel Selfoss (start) → Kerið Crater | 15 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_b7179ec1946de694b41d465cd9e6e638 = L.polyline(
+                [[63.934, -20.996], [64.0415, -21.2135]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_289153bb355afb0d60db29d6cf1c0891);
+        
+    
+            poly_line_b7179ec1946de694b41d465cd9e6e638.bindTooltip(
+                `<div>
+                     Kerið Crater → Reykjadalur Hot River (parking) | 35–40 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_4f464114b757de1bff336019d98ac720 = L.polyline(
+                [[64.0415, -21.2135], [63.9388, -21.3918]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_289153bb355afb0d60db29d6cf1c0891);
+        
+    
+            poly_line_4f464114b757de1bff336019d98ac720.bindTooltip(
+                `<div>
+                     Reykjadalur Hot River (parking) → Raufarhólshellir – The Lava Tunnel (extra) | 15 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_be65b0807fdc93aa551043389ab18ac2 = L.polyline(
+                [[63.9388, -21.3918], [64.3205, -21.6395]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_289153bb355afb0d60db29d6cf1c0891);
+        
+    
+            poly_line_be65b0807fdc93aa551043389ab18ac2.bindTooltip(
+                `<div>
+                     Raufarhólshellir – The Lava Tunnel (extra) → Hvammsvík Hot Springs | 45–55 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_34014156449124f99a2f30d00ed69aac = L.polyline(
+                [[64.3205, -21.6395], [64.1421, -21.9147]],
+                {"bubblingMouseEvents": true, "color": "#1565c0", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#1565c0", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_289153bb355afb0d60db29d6cf1c0891);
+        
+    
+            poly_line_34014156449124f99a2f30d00ed69aac.bindTooltip(
+                `<div>
+                     Hvammsvík Hot Springs → Hotel Klettur (arrivo) | 40–45 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_3694d500fe214798e38a5382646187b9 = L.polyline(
+                [[63.9331, -21.0011], [63.4145, -19.071]],
+                {"bubblingMouseEvents": true, "color": "#8e24aa", "dashArray": "6,8", "dashOffset": null, "fill": false, "fillColor": "#8e24aa", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_289153bb355afb0d60db29d6cf1c0891);
+        
+    
+            poly_line_3694d500fe214798e38a5382646187b9.bindTooltip(
+                `<div>
+                     Deviazione opzionale: Selfoss → Reynisfjall ~1h45–2h (solo se tempo disponibile)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

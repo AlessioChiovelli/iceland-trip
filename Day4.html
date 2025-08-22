@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_0642e171fff96999ea3b792eebdafbc1 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.css"/>
+</head>
+<body>
+    
+    
+     <div style="position: fixed; 
+     bottom: 50px; left: 50px; width: 250px; height: 180px; 
+     background-color: white; z-index:9999; font-size:14px;
+     border:2px solid grey; padding: 10px;">
+     <b>Legenda:</b><br>
+     <span style="color:blue;">●</span> Tappa principale<br>
+     <span style="color:purple;">●</span> Extra / Chicca<br>
+     <span style="color:green;">●</span> Parcheggio<br>
+     <span style="color:black;">—</span> Percorso in auto<br>
+     </div>
+     
+    
+            <div class="folium-map" id="map_0642e171fff96999ea3b792eebdafbc1" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_0642e171fff96999ea3b792eebdafbc1 = L.map(
+                "map_0642e171fff96999ea3b792eebdafbc1",
+                {
+                    center: [63.8, -18.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 8,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_c2146aeae2599f641f386e8ff1ce7c3c = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_c2146aeae2599f641f386e8ff1ce7c3c.addTo(map_0642e171fff96999ea3b792eebdafbc1);
+        
+    
+            var marker_4bbcbcef9eb62de47be6ec3bf9984628 = L.marker(
+                [63.418, -19.009],
+                {
+}
+            ).addTo(map_0642e171fff96999ea3b792eebdafbc1);
+        
+    
+            var beautify_icon_e6331c86119c8b69ef8103ae563ebb68 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "circle",
+  "borderWidth": 3,
+  "borderColor": "blue",
+  "textColor": "white",
+  "backgroundColor": "blue",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 1,
+}
+            )
+            marker_4bbcbcef9eb62de47be6ec3bf9984628.setIcon(beautify_icon_e6331c86119c8b69ef8103ae563ebb68);
+        
+    
+        var popup_c81eb692cee0dbd3129b7ba85076dbd1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_438266f5fa393aa72077c3554df5b679 = $(`<div id="html_438266f5fa393aa72077c3554df5b679" style="width: 100.0%; height: 100.0%;">Partenza da Hvammból Apartments</div>`)[0];
+                popup_c81eb692cee0dbd3129b7ba85076dbd1.setContent(html_438266f5fa393aa72077c3554df5b679);
+            
+        
+
+        marker_4bbcbcef9eb62de47be6ec3bf9984628.bindPopup(popup_c81eb692cee0dbd3129b7ba85076dbd1)
+        ;
+
+        
+    
+    
+                marker_4bbcbcef9eb62de47be6ec3bf9984628.setIcon(beautify_icon_e6331c86119c8b69ef8103ae563ebb68);
+            
+    
+            var marker_dd9f8642701b093b3653419eb87749f5 = L.marker(
+                [63.771, -18.172],
+                {
+}
+            ).addTo(map_0642e171fff96999ea3b792eebdafbc1);
+        
+    
+            var beautify_icon_39584875dd275dcc47f0fb65fa61a81b = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "circle",
+  "borderWidth": 3,
+  "borderColor": "blue",
+  "textColor": "white",
+  "backgroundColor": "blue",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 2,
+}
+            )
+            marker_dd9f8642701b093b3653419eb87749f5.setIcon(beautify_icon_39584875dd275dcc47f0fb65fa61a81b);
+        
+    
+        var popup_e975321db6357d65838cb255e79b28d7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bb63b7a5c6be5bccdab8acb942a5a88a = $(`<div id="html_bb63b7a5c6be5bccdab8acb942a5a88a" style="width: 100.0%; height: 100.0%;">Fjaðrárgljúfur Canyon<br>Visita: 30–45 min<br>Parcheggio gratuito</div>`)[0];
+                popup_e975321db6357d65838cb255e79b28d7.setContent(html_bb63b7a5c6be5bccdab8acb942a5a88a);
+            
+        
+
+        marker_dd9f8642701b093b3653419eb87749f5.bindPopup(popup_e975321db6357d65838cb255e79b28d7)
+        ;
+
+        
+    
+    
+                marker_dd9f8642701b093b3653419eb87749f5.setIcon(beautify_icon_39584875dd275dcc47f0fb65fa61a81b);
+            
+    
+            var marker_aff3e0ddb765affc4a849a32fc3e7168 = L.marker(
+                [63.77, -18.174],
+                {
+}
+            ).addTo(map_0642e171fff96999ea3b792eebdafbc1);
+        
+    
+            var beautify_icon_f39aec1f5a2495a7a2a7abc04e1df76e = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "green",
+  "textColor": "#000",
+  "backgroundColor": "green",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_aff3e0ddb765affc4a849a32fc3e7168.setIcon(beautify_icon_f39aec1f5a2495a7a2a7abc04e1df76e);
+        
+    
+        var popup_933c81749ef06aa38a969cf55a4446b3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6a1957db1584e9b1c1048640c49fce70 = $(`<div id="html_6a1957db1584e9b1c1048640c49fce70" style="width: 100.0%; height: 100.0%;">Parcheggio</div>`)[0];
+                popup_933c81749ef06aa38a969cf55a4446b3.setContent(html_6a1957db1584e9b1c1048640c49fce70);
+            
+        
+
+        marker_aff3e0ddb765affc4a849a32fc3e7168.bindPopup(popup_933c81749ef06aa38a969cf55a4446b3)
+        ;
+
+        
+    
+    
+                marker_aff3e0ddb765affc4a849a32fc3e7168.setIcon(beautify_icon_f39aec1f5a2495a7a2a7abc04e1df76e);
+            
+    
+            var marker_dc4dbba4d2d4e9df9c84d1cd10f416f6 = L.marker(
+                [63.793, -18.24],
+                {
+}
+            ).addTo(map_0642e171fff96999ea3b792eebdafbc1);
+        
+    
+            var beautify_icon_40ab17639a6708307382e8d60ef21072 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "circle",
+  "borderWidth": 3,
+  "borderColor": "blue",
+  "textColor": "white",
+  "backgroundColor": "blue",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 3,
+}
+            )
+            marker_dc4dbba4d2d4e9df9c84d1cd10f416f6.setIcon(beautify_icon_40ab17639a6708307382e8d60ef21072);
+        
+    
+        var popup_a36e7c2b9c60a02cbe2b3c1237dd7855 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_74f86a913f37d7458f85b37facd934c9 = $(`<div id="html_74f86a913f37d7458f85b37facd934c9" style="width: 100.0%; height: 100.0%;">Campo di lava Eldhraun<br>Stop fotografico 10–15 min</div>`)[0];
+                popup_a36e7c2b9c60a02cbe2b3c1237dd7855.setContent(html_74f86a913f37d7458f85b37facd934c9);
+            
+        
+
+        marker_dc4dbba4d2d4e9df9c84d1cd10f416f6.bindPopup(popup_a36e7c2b9c60a02cbe2b3c1237dd7855)
+        ;
+
+        
+    
+    
+                marker_dc4dbba4d2d4e9df9c84d1cd10f416f6.setIcon(beautify_icon_40ab17639a6708307382e8d60ef21072);
+            
+    
+            var marker_f740465e720acf99381b0dc26aeb0682 = L.marker(
+                [64.044, -16.408],
+                {
+}
+            ).addTo(map_0642e171fff96999ea3b792eebdafbc1);
+        
+    
+            var beautify_icon_3293b9497841cb22a3672bb72b823dd9 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "circle",
+  "borderWidth": 3,
+  "borderColor": "purple",
+  "textColor": "white",
+  "backgroundColor": "purple",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_f740465e720acf99381b0dc26aeb0682.setIcon(beautify_icon_3293b9497841cb22a3672bb72b823dd9);
+        
+    
+        var popup_16bc95e9d4390830785f8de8c574f042 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_551ed99b8da439e9a5d72518c5ba7404 = $(`<div id="html_551ed99b8da439e9a5d72518c5ba7404" style="width: 100.0%; height: 100.0%;">Mulagljúfur Canyon<br>Sentiero panoramico 1h30' A/R<br>Accesso con auto normale</div>`)[0];
+                popup_16bc95e9d4390830785f8de8c574f042.setContent(html_551ed99b8da439e9a5d72518c5ba7404);
+            
+        
+
+        marker_f740465e720acf99381b0dc26aeb0682.bindPopup(popup_16bc95e9d4390830785f8de8c574f042)
+        ;
+
+        
+    
+    
+                marker_f740465e720acf99381b0dc26aeb0682.setIcon(beautify_icon_3293b9497841cb22a3672bb72b823dd9);
+            
+    
+            var marker_5b94e015aa8597eedaa6c5790c577a7b = L.marker(
+                [64.042, -16.41],
+                {
+}
+            ).addTo(map_0642e171fff96999ea3b792eebdafbc1);
+        
+    
+            var beautify_icon_264a61781c87794b27156af5d4c1ba09 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "green",
+  "textColor": "#000",
+  "backgroundColor": "green",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_5b94e015aa8597eedaa6c5790c577a7b.setIcon(beautify_icon_264a61781c87794b27156af5d4c1ba09);
+        
+    
+        var popup_ea259c0a5af64bd709b6b636de061a68 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c2b071ba6523967c5432bc48b9d36cc0 = $(`<div id="html_c2b071ba6523967c5432bc48b9d36cc0" style="width: 100.0%; height: 100.0%;">Parcheggio</div>`)[0];
+                popup_ea259c0a5af64bd709b6b636de061a68.setContent(html_c2b071ba6523967c5432bc48b9d36cc0);
+            
+        
+
+        marker_5b94e015aa8597eedaa6c5790c577a7b.bindPopup(popup_ea259c0a5af64bd709b6b636de061a68)
+        ;
+
+        
+    
+    
+                marker_5b94e015aa8597eedaa6c5790c577a7b.setIcon(beautify_icon_264a61781c87794b27156af5d4c1ba09);
+            
+    
+            var marker_6698540b939b06a473847ed7529a13c4 = L.marker(
+                [64.026, -16.377],
+                {
+}
+            ).addTo(map_0642e171fff96999ea3b792eebdafbc1);
+        
+    
+            var beautify_icon_63e2dda27d31369dfa00cc308f025538 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "circle",
+  "borderWidth": 3,
+  "borderColor": "blue",
+  "textColor": "white",
+  "backgroundColor": "blue",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 5,
+}
+            )
+            marker_6698540b939b06a473847ed7529a13c4.setIcon(beautify_icon_63e2dda27d31369dfa00cc308f025538);
+        
+    
+        var popup_e8be670a5d3bf16ce6dc2c8a36b0c214 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_724a28d386e2b89e4919b8a4af1fb652 = $(`<div id="html_724a28d386e2b89e4919b8a4af1fb652" style="width: 100.0%; height: 100.0%;">Laguna glaciale Fjallsárlón<br>Visita: 30 min<br>Parcheggio gratuito</div>`)[0];
+                popup_e8be670a5d3bf16ce6dc2c8a36b0c214.setContent(html_724a28d386e2b89e4919b8a4af1fb652);
+            
+        
+
+        marker_6698540b939b06a473847ed7529a13c4.bindPopup(popup_e8be670a5d3bf16ce6dc2c8a36b0c214)
+        ;
+
+        
+    
+    
+                marker_6698540b939b06a473847ed7529a13c4.setIcon(beautify_icon_63e2dda27d31369dfa00cc308f025538);
+            
+    
+            var marker_7bbd978cb2da65d8538b8f7dd07a981a = L.marker(
+                [64.025, -16.378],
+                {
+}
+            ).addTo(map_0642e171fff96999ea3b792eebdafbc1);
+        
+    
+            var beautify_icon_dcc05f677b3526c2d1bc9cd7fb84a917 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "green",
+  "textColor": "#000",
+  "backgroundColor": "green",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_7bbd978cb2da65d8538b8f7dd07a981a.setIcon(beautify_icon_dcc05f677b3526c2d1bc9cd7fb84a917);
+        
+    
+        var popup_88c126e09358717418c20ca0de89dceb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dbaab06d69b66981c8741b0c1c6d5b4a = $(`<div id="html_dbaab06d69b66981c8741b0c1c6d5b4a" style="width: 100.0%; height: 100.0%;">Parcheggio</div>`)[0];
+                popup_88c126e09358717418c20ca0de89dceb.setContent(html_dbaab06d69b66981c8741b0c1c6d5b4a);
+            
+        
+
+        marker_7bbd978cb2da65d8538b8f7dd07a981a.bindPopup(popup_88c126e09358717418c20ca0de89dceb)
+        ;
+
+        
+    
+    
+                marker_7bbd978cb2da65d8538b8f7dd07a981a.setIcon(beautify_icon_dcc05f677b3526c2d1bc9cd7fb84a917);
+            
+    
+            var marker_c4ec192acdde82bcf865743f89a4ad32 = L.marker(
+                [64.048, -16.179],
+                {
+}
+            ).addTo(map_0642e171fff96999ea3b792eebdafbc1);
+        
+    
+            var beautify_icon_bda9a4749ecfce42bf58e3b505c967e9 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "circle",
+  "borderWidth": 3,
+  "borderColor": "blue",
+  "textColor": "white",
+  "backgroundColor": "blue",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 6,
+}
+            )
+            marker_c4ec192acdde82bcf865743f89a4ad32.setIcon(beautify_icon_bda9a4749ecfce42bf58e3b505c967e9);
+        
+    
+        var popup_75848b378cc04e00d12d96db03faef1d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_65097c078f12e58554616666a459dfbc = $(`<div id="html_65097c078f12e58554616666a459dfbc" style="width: 100.0%; height: 100.0%;">Laguna glaciale Jökulsárlón<br>Visita: 45–60 min<br>Parcheggio a pagamento (~1000 ISK)</div>`)[0];
+                popup_75848b378cc04e00d12d96db03faef1d.setContent(html_65097c078f12e58554616666a459dfbc);
+            
+        
+
+        marker_c4ec192acdde82bcf865743f89a4ad32.bindPopup(popup_75848b378cc04e00d12d96db03faef1d)
+        ;
+
+        
+    
+    
+                marker_c4ec192acdde82bcf865743f89a4ad32.setIcon(beautify_icon_bda9a4749ecfce42bf58e3b505c967e9);
+            
+    
+            var marker_91fb7591aaf923d98b3c4deb9e942497 = L.marker(
+                [64.047, -16.18],
+                {
+}
+            ).addTo(map_0642e171fff96999ea3b792eebdafbc1);
+        
+    
+            var beautify_icon_b171e51482da7f2a40d999eabf94deff = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "green",
+  "textColor": "#000",
+  "backgroundColor": "green",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_91fb7591aaf923d98b3c4deb9e942497.setIcon(beautify_icon_b171e51482da7f2a40d999eabf94deff);
+        
+    
+        var popup_1286579fa53b46806d84ee4c47b7d557 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c71df4fdb1ceb96969c02ea98fd1b939 = $(`<div id="html_c71df4fdb1ceb96969c02ea98fd1b939" style="width: 100.0%; height: 100.0%;">Parcheggio</div>`)[0];
+                popup_1286579fa53b46806d84ee4c47b7d557.setContent(html_c71df4fdb1ceb96969c02ea98fd1b939);
+            
+        
+
+        marker_91fb7591aaf923d98b3c4deb9e942497.bindPopup(popup_1286579fa53b46806d84ee4c47b7d557)
+        ;
+
+        
+    
+    
+                marker_91fb7591aaf923d98b3c4deb9e942497.setIcon(beautify_icon_b171e51482da7f2a40d999eabf94deff);
+            
+    
+            var marker_74976b304f013258ac273e1c5da55802 = L.marker(
+                [64.044, -16.178],
+                {
+}
+            ).addTo(map_0642e171fff96999ea3b792eebdafbc1);
+        
+    
+            var beautify_icon_431482dd9f9c8f8d979aa3db83f4c636 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "circle",
+  "borderWidth": 3,
+  "borderColor": "blue",
+  "textColor": "white",
+  "backgroundColor": "blue",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 7,
+}
+            )
+            marker_74976b304f013258ac273e1c5da55802.setIcon(beautify_icon_431482dd9f9c8f8d979aa3db83f4c636);
+        
+    
+        var popup_279deb5b9ec2f8c51d3faeca581b8ec3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_175000e5c03cebe06b08405af449846d = $(`<div id="html_175000e5c03cebe06b08405af449846d" style="width: 100.0%; height: 100.0%;">Diamond Beach<br>Visita: 20–30 min<br>Inclusa nel parcheggio Jökulsárlón</div>`)[0];
+                popup_279deb5b9ec2f8c51d3faeca581b8ec3.setContent(html_175000e5c03cebe06b08405af449846d);
+            
+        
+
+        marker_74976b304f013258ac273e1c5da55802.bindPopup(popup_279deb5b9ec2f8c51d3faeca581b8ec3)
+        ;
+
+        
+    
+    
+                marker_74976b304f013258ac273e1c5da55802.setIcon(beautify_icon_431482dd9f9c8f8d979aa3db83f4c636);
+            
+    
+            var marker_4294faeedd2e553ee02b3c907d21b510 = L.marker(
+                [64.259, -15.718],
+                {
+}
+            ).addTo(map_0642e171fff96999ea3b792eebdafbc1);
+        
+    
+            var beautify_icon_f903885a0a525a15757e220033f18acc = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "circle",
+  "borderWidth": 3,
+  "borderColor": "blue",
+  "textColor": "white",
+  "backgroundColor": "blue",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 8,
+}
+            )
+            marker_4294faeedd2e553ee02b3c907d21b510.setIcon(beautify_icon_f903885a0a525a15757e220033f18acc);
+        
+    
+        var popup_2c0a02f3a1f68e52f9d5d833b34005c9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_825131ad90a11a837f5cdae4a41ff48a = $(`<div id="html_825131ad90a11a837f5cdae4a41ff48a" style="width: 100.0%; height: 100.0%;">Arrivo a Guesthouse Gerði</div>`)[0];
+                popup_2c0a02f3a1f68e52f9d5d833b34005c9.setContent(html_825131ad90a11a837f5cdae4a41ff48a);
+            
+        
+
+        marker_4294faeedd2e553ee02b3c907d21b510.bindPopup(popup_2c0a02f3a1f68e52f9d5d833b34005c9)
+        ;
+
+        
+    
+    
+                marker_4294faeedd2e553ee02b3c907d21b510.setIcon(beautify_icon_f903885a0a525a15757e220033f18acc);
+            
+    
+            var poly_line_e889fe3d16355d84d8849bbb8bbcabe0 = L.polyline(
+                [[63.418, -19.009], [63.771, -18.172], [63.793, -18.24], [64.044, -16.408], [64.026, -16.377], [64.048, -16.179], [64.044, -16.178], [64.259, -15.718]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_0642e171fff96999ea3b792eebdafbc1);
+        
+</script>
+</html>

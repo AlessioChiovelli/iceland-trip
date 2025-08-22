@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_6a3272952cbaf1014750a50f1230327a {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/marslan390/BeautifyMarker/leaflet-beautify-marker-icon.min.css"/>
+</head>
+<body>
+    
+    
+     <div style="position: fixed; 
+     bottom: 50px; left: 50px; width: 250px; height: 180px; 
+     background-color: white; z-index:9999; font-size:14px;
+     border:2px solid grey; padding: 10px;">
+     <b>Legenda:</b><br>
+     <span style="color:blue;">●</span> Tappa principale<br>
+     <span style="color:purple;">●</span> Extra / Chicca<br>
+     <span style="color:green;">●</span> Parcheggio<br>
+     <span style="color:black;">—</span> Percorso in auto<br>
+     </div>
+     
+    
+            <div class="folium-map" id="map_6a3272952cbaf1014750a50f1230327a" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_6a3272952cbaf1014750a50f1230327a = L.map(
+                "map_6a3272952cbaf1014750a50f1230327a",
+                {
+                    center: [63.8, -18.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 8,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_3f23587ab7b956684c3a350f4d65d699 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_3f23587ab7b956684c3a350f4d65d699.addTo(map_6a3272952cbaf1014750a50f1230327a);
+        
+    
+            var marker_24630784d5dc31c65a0ffbb07131f613 = L.marker(
+                [64.259, -15.718],
+                {
+}
+            ).addTo(map_6a3272952cbaf1014750a50f1230327a);
+        
+    
+            var beautify_icon_867b8edf3accb65098fe3ad04d4dc2cd = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "circle",
+  "borderWidth": 3,
+  "borderColor": "blue",
+  "textColor": "white",
+  "backgroundColor": "blue",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 1,
+}
+            )
+            marker_24630784d5dc31c65a0ffbb07131f613.setIcon(beautify_icon_867b8edf3accb65098fe3ad04d4dc2cd);
+        
+    
+        var popup_8e3fa5a3dafe653daf97547d6098a8bf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f4bb36d2560bc3b210bbd7d8576579af = $(`<div id="html_f4bb36d2560bc3b210bbd7d8576579af" style="width: 100.0%; height: 100.0%;">Partenza da Guesthouse Gerði</div>`)[0];
+                popup_8e3fa5a3dafe653daf97547d6098a8bf.setContent(html_f4bb36d2560bc3b210bbd7d8576579af);
+            
+        
+
+        marker_24630784d5dc31c65a0ffbb07131f613.bindPopup(popup_8e3fa5a3dafe653daf97547d6098a8bf)
+        ;
+
+        
+    
+    
+                marker_24630784d5dc31c65a0ffbb07131f613.setIcon(beautify_icon_867b8edf3accb65098fe3ad04d4dc2cd);
+            
+    
+            var marker_7dea8bfb1f41b3f0425bf5b37bd29fa1 = L.marker(
+                [64.239, -14.968],
+                {
+}
+            ).addTo(map_6a3272952cbaf1014750a50f1230327a);
+        
+    
+            var beautify_icon_bc8b27eda8825f812196908d0538ed91 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "circle",
+  "borderWidth": 3,
+  "borderColor": "blue",
+  "textColor": "white",
+  "backgroundColor": "blue",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 2,
+}
+            )
+            marker_7dea8bfb1f41b3f0425bf5b37bd29fa1.setIcon(beautify_icon_bc8b27eda8825f812196908d0538ed91);
+        
+    
+        var popup_e82f37bf3ae945820c61b772e4c63666 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0249f1de49e7bef5fc111eeb65f50a0a = $(`<div id="html_0249f1de49e7bef5fc111eeb65f50a0a" style="width: 100.0%; height: 100.0%;">Monte Vestrahorn & Spiaggia Stokksnes<br>Visita: 45–60 min<br>Parcheggio a pagamento (~900 ISK)</div>`)[0];
+                popup_e82f37bf3ae945820c61b772e4c63666.setContent(html_0249f1de49e7bef5fc111eeb65f50a0a);
+            
+        
+
+        marker_7dea8bfb1f41b3f0425bf5b37bd29fa1.bindPopup(popup_e82f37bf3ae945820c61b772e4c63666)
+        ;
+
+        
+    
+    
+                marker_7dea8bfb1f41b3f0425bf5b37bd29fa1.setIcon(beautify_icon_bc8b27eda8825f812196908d0538ed91);
+            
+    
+            var marker_a521a07ed52a6280469c2fdc1777fc59 = L.marker(
+                [64.24, -14.969],
+                {
+}
+            ).addTo(map_6a3272952cbaf1014750a50f1230327a);
+        
+    
+            var beautify_icon_cf5ed107b3771c4144226ec6eb5b2f6c = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "green",
+  "textColor": "#000",
+  "backgroundColor": "green",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_a521a07ed52a6280469c2fdc1777fc59.setIcon(beautify_icon_cf5ed107b3771c4144226ec6eb5b2f6c);
+        
+    
+        var popup_270991d1c3066eda8c60940808386cdf = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bd2dd5fbe2d51a7fbe700001a6e770f0 = $(`<div id="html_bd2dd5fbe2d51a7fbe700001a6e770f0" style="width: 100.0%; height: 100.0%;">Parcheggio</div>`)[0];
+                popup_270991d1c3066eda8c60940808386cdf.setContent(html_bd2dd5fbe2d51a7fbe700001a6e770f0);
+            
+        
+
+        marker_a521a07ed52a6280469c2fdc1777fc59.bindPopup(popup_270991d1c3066eda8c60940808386cdf)
+        ;
+
+        
+    
+    
+                marker_a521a07ed52a6280469c2fdc1777fc59.setIcon(beautify_icon_cf5ed107b3771c4144226ec6eb5b2f6c);
+            
+    
+            var marker_2cf07448d9e6390ce7981559232100ca = L.marker(
+                [64.006, -16.877],
+                {
+}
+            ).addTo(map_6a3272952cbaf1014750a50f1230327a);
+        
+    
+            var beautify_icon_478d4fbc504e2ed6c6fa46fae3ab7175 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "circle",
+  "borderWidth": 3,
+  "borderColor": "purple",
+  "textColor": "white",
+  "backgroundColor": "purple",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_2cf07448d9e6390ce7981559232100ca.setIcon(beautify_icon_478d4fbc504e2ed6c6fa46fae3ab7175);
+        
+    
+        var popup_3826d5408684521e4e414c069b1f3a3f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cc21d9424bb757086f441c3cd2cf1de7 = $(`<div id="html_cc21d9424bb757086f441c3cd2cf1de7" style="width: 100.0%; height: 100.0%;">Svínafellsjökull Viewpoint<br>Extra panoramico<br>Accessibile con auto normale</div>`)[0];
+                popup_3826d5408684521e4e414c069b1f3a3f.setContent(html_cc21d9424bb757086f441c3cd2cf1de7);
+            
+        
+
+        marker_2cf07448d9e6390ce7981559232100ca.bindPopup(popup_3826d5408684521e4e414c069b1f3a3f)
+        ;
+
+        
+    
+    
+                marker_2cf07448d9e6390ce7981559232100ca.setIcon(beautify_icon_478d4fbc504e2ed6c6fa46fae3ab7175);
+            
+    
+            var marker_ce785cadabc914bfd226dfca7e98c68f = L.marker(
+                [64.016, -16.966],
+                {
+}
+            ).addTo(map_6a3272952cbaf1014750a50f1230327a);
+        
+    
+            var beautify_icon_42c0e523f9e78717cee6a738e837e050 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "circle",
+  "borderWidth": 3,
+  "borderColor": "blue",
+  "textColor": "white",
+  "backgroundColor": "blue",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 4,
+}
+            )
+            marker_ce785cadabc914bfd226dfca7e98c68f.setIcon(beautify_icon_42c0e523f9e78717cee6a738e837e050);
+        
+    
+        var popup_deefab85bbed63798bb79a6afddc7411 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3949e807cb9740815f6e4a139abb566f = $(`<div id="html_3949e807cb9740815f6e4a139abb566f" style="width: 100.0%; height: 100.0%;">Skaftafell & Svartifoss<br>Camminata 2h A/R<br>Parcheggio a pagamento (~750 ISK)</div>`)[0];
+                popup_deefab85bbed63798bb79a6afddc7411.setContent(html_3949e807cb9740815f6e4a139abb566f);
+            
+        
+
+        marker_ce785cadabc914bfd226dfca7e98c68f.bindPopup(popup_deefab85bbed63798bb79a6afddc7411)
+        ;
+
+        
+    
+    
+                marker_ce785cadabc914bfd226dfca7e98c68f.setIcon(beautify_icon_42c0e523f9e78717cee6a738e837e050);
+            
+    
+            var marker_8d4b67f64489803c063382ad8640666f = L.marker(
+                [64.015, -16.965],
+                {
+}
+            ).addTo(map_6a3272952cbaf1014750a50f1230327a);
+        
+    
+            var beautify_icon_35872fa21ab772dcdb5f6abe40d2c780 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "marker",
+  "borderWidth": 3,
+  "borderColor": "green",
+  "textColor": "#000",
+  "backgroundColor": "green",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": false,
+}
+            )
+            marker_8d4b67f64489803c063382ad8640666f.setIcon(beautify_icon_35872fa21ab772dcdb5f6abe40d2c780);
+        
+    
+        var popup_302b06b4e56dfe9a754b6647b562475e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1d4fe13b3dad8326cc65e1b74fc69cd9 = $(`<div id="html_1d4fe13b3dad8326cc65e1b74fc69cd9" style="width: 100.0%; height: 100.0%;">Parcheggio</div>`)[0];
+                popup_302b06b4e56dfe9a754b6647b562475e.setContent(html_1d4fe13b3dad8326cc65e1b74fc69cd9);
+            
+        
+
+        marker_8d4b67f64489803c063382ad8640666f.bindPopup(popup_302b06b4e56dfe9a754b6647b562475e)
+        ;
+
+        
+    
+    
+                marker_8d4b67f64489803c063382ad8640666f.setIcon(beautify_icon_35872fa21ab772dcdb5f6abe40d2c780);
+            
+    
+            var marker_6eb993c57089015578d5dbb030d2b840 = L.marker(
+                [63.771, -18.172],
+                {
+}
+            ).addTo(map_6a3272952cbaf1014750a50f1230327a);
+        
+    
+            var beautify_icon_24d2da1818bf0483ef2c8c6ff8087aa7 = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "circle",
+  "borderWidth": 3,
+  "borderColor": "purple",
+  "textColor": "white",
+  "backgroundColor": "purple",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": "",
+}
+            )
+            marker_6eb993c57089015578d5dbb030d2b840.setIcon(beautify_icon_24d2da1818bf0483ef2c8c6ff8087aa7);
+        
+    
+        var popup_6023a765aaf962823e28377bd7eb2bf0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_71f7bd036bf30696571286d945c86571 = $(`<div id="html_71f7bd036bf30696571286d945c86571" style="width: 100.0%; height: 100.0%;">Fjaðrárgljúfur Canyon (opzionale)<br>Visita: 30–45 min</div>`)[0];
+                popup_6023a765aaf962823e28377bd7eb2bf0.setContent(html_71f7bd036bf30696571286d945c86571);
+            
+        
+
+        marker_6eb993c57089015578d5dbb030d2b840.bindPopup(popup_6023a765aaf962823e28377bd7eb2bf0)
+        ;
+
+        
+    
+    
+                marker_6eb993c57089015578d5dbb030d2b840.setIcon(beautify_icon_24d2da1818bf0483ef2c8c6ff8087aa7);
+            
+    
+            var marker_50e5eb8b017b095f5c7d3c67bee814ac = L.marker(
+                [63.532, -19.511],
+                {
+}
+            ).addTo(map_6a3272952cbaf1014750a50f1230327a);
+        
+    
+            var beautify_icon_b424fad84aea0f04ac78bec189fdd0dd = new L.BeautifyIcon.icon(
+                {
+  "iconShape": "circle",
+  "borderWidth": 3,
+  "borderColor": "blue",
+  "textColor": "white",
+  "backgroundColor": "blue",
+  "innerIconStyle": "",
+  "spin": false,
+  "isAlphaNumericIcon": true,
+  "text": 6,
+}
+            )
+            marker_50e5eb8b017b095f5c7d3c67bee814ac.setIcon(beautify_icon_b424fad84aea0f04ac78bec189fdd0dd);
+        
+    
+        var popup_340f37e0f33ec6445a08c350627767dd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_daba314d13cbe02699a11db75740b357 = $(`<div id="html_daba314d13cbe02699a11db75740b357" style="width: 100.0%; height: 100.0%;">Arrivo a Guesthouse Skógafoss</div>`)[0];
+                popup_340f37e0f33ec6445a08c350627767dd.setContent(html_daba314d13cbe02699a11db75740b357);
+            
+        
+
+        marker_50e5eb8b017b095f5c7d3c67bee814ac.bindPopup(popup_340f37e0f33ec6445a08c350627767dd)
+        ;
+
+        
+    
+    
+                marker_50e5eb8b017b095f5c7d3c67bee814ac.setIcon(beautify_icon_b424fad84aea0f04ac78bec189fdd0dd);
+            
+    
+            var poly_line_9f9f3e3ab8650def8ca94d3d9b8c9407 = L.polyline(
+                [[64.259, -15.718], [64.239, -14.968], [64.006, -16.877], [64.016, -16.966], [63.771, -18.172], [63.532, -19.511]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_6a3272952cbaf1014750a50f1230327a);
+        
+</script>
+</html>
